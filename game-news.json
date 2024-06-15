@@ -1,7 +1,7 @@
 {
-    "Name" : " Test Name",
-    "Description" : " ",
-    "UrlImage" : "https://pbs.twimg.com/media/FtDq8b1WYAEZ9F4?format=jpg&name=medium",
-    "UrlOpen" : "https://x.com/fdoh20"
+    "name" : " Test Name",
+    "description" : " ",
+    "urlImage" : "https://pbs.twimg.com/media/FtDq8b1WYAEZ9F4?format=jpg&name=medium",
+    "urlOpen" : "https://x.com/fdoh20"
 
 }
