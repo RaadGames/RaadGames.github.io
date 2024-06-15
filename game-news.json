@@ -2,5 +2,6 @@
     "name" : "image-03",
     "description" : "hello",
     "urlImage" : "https://pbs.twimg.com/media/FtDj8XbWwAAD-pT?format=jpg&name=medium",
-    "urlOpen" : "https://x.com/fdoh20"
+    "urlOpen" : "https://x.com/fdoh20",
+    "isActive" : false
 }
