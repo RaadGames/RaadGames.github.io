@@ -1,0 +1,21 @@
+name: Update Time
+
+on:
+  schedule:
+    - cron: "*/10 * * * *" # Every 10 minutes
+
+jobs:
+  update-time:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Update Time
+        run: |
+          echo '{ "utc_time": "'$(date -u +%Y-%m-%dT%H:%M:%SZ)'" }' > time.json
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+          git add time.json
+          git commit -m "Update time.json"
+          git push
