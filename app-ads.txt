@@ -7,6 +7,7 @@ zmaticoo.com, 5135704, RESELLER
 zmaticoo.com, 5135195, RESELLER
 video.unrulymedia.com, 585054906, RESELLER
 pubmatic.com, 165116, RESELLER, 5d62403b186f2ace
+openx.com, 541017750, RESELLER, 6a698e2ec38604c6
 smartadserver.com, 4467, RESELLER
 lijit.com, 417620, RESELLER, fafdf38b16bf6b2b
 pubnative.net, 1007974, RESELLER, d641df8625486a7b
