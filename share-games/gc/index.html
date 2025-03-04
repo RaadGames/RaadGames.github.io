@@ -1,43 +1,42 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Drift Challenge - Realistic Simulator</title>
-    <meta name="description"
-        content="Drift Challenge - Realistic Simulator: Experience the ultimate drifting game. Download now on Google Play and the App Store.">
-    <meta name="keywords" content="drift challenge, drifting game, car simulator, racing game, mobile game">
-    <meta name="author" content="Your Company Name">
-    <meta property="og:title" content="Drift Challenge - Realistic Simulator">
-    <meta property="og:description"
-        content="Experience the ultimate drifting game. Download now on Google Play and the App Store.">
-    <meta property="og:image" content="https://yourwebsite.com/icon.png">
-    <meta property="og:url" content="https://yourwebsite.com">
-    <link rel="icon" type="image/png" href="favicon.png">
+    <title>تحدي التخمين</title>
+    <meta name="description" content="تحدي التخمين قم بتنزيلها الآن من جوجل بلاي وابل ستور.">
+    <meta name="keywords" content="تحدي التخمين, ,لعبة رمضان,لعبة اسئلة , لعبة موبايل">
+    <meta name="author" content="RAAD GAMES">
+    <meta property="og:title" content="تحدي التخمين - محاكي واقعي">
+    <meta property="og:description" content="قم بتنزيلها الآن من جوجل بلاي وابل ستور.">
+    <meta property="og:image" content="https://raadgames.github.io/raadgames_white.png">
+    <meta property="og:url" content="https://raadgames.github.io">
+    <link rel="icon" type="https://raadgames.github.io/raadgames_white.png" href="raadgames_white.png">
     <style>
         /* General Styles */
         body {
-            font-family: Arial, sans-serif, "Helvetica Neue", Helvetica, sans-serif;
+            font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background: url('background.jpg') no-repeat center center fixed;
-            background-size: cover;
+            background: linear-gradient(135deg, #6a11cb, #2575fc);
             color: #ffffff;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
+            overflow-x: hidden;
         }
 
         .container {
             width: 90%;
             max-width: 450px;
-            background: #524380;
-            border-radius: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
             text-align: center;
-            padding: 25px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
         }
 
         .game-logo img {
@@ -45,6 +44,7 @@
             height: 150px;
             border-radius: 20px;
             margin-bottom: 20px;
+            object-fit: cover;
         }
 
         h1 {
@@ -65,13 +65,13 @@
             margin: 10px auto;
             width: 90%;
             max-width: 280px;
-            background: #9775FF;
-            color: #ffffff;
+            background: #ffffff;
+            color: #6a11cb;
             text-decoration: none;
             border-radius: 10px;
             font-size: 18px;
             font-weight: bold;
-            transition: 0.3s;
+            transition: all 0.3s ease;
         }
 
         .store-buttons a img {
@@ -81,8 +81,8 @@
         }
 
         .store-buttons a:hover {
-            background: #ffffff;
-            color: #9775FF;
+            background: #6a11cb;
+            color: #ffffff;
             transform: scale(1.05);
         }
 
@@ -92,41 +92,46 @@
             height: auto;
             border-radius: 15px;
             margin-top: 15px;
-            loading: lazy;
+            object-fit: cover;
         }
 
         /* Mobile-Specific Styles */
         @media (max-width: 480px) {
             h1 {
                 font-size: 22px;
-                /* Smaller font for mobile */
             }
 
             .store-buttons a {
                 padding: 15px 25px;
-                /* Larger buttons for mobile */
             }
 
             .container {
                 padding: 15px;
-                /* Less padding for smaller screens */
-            }
-        }
-
-        /* Smaller background image for mobile */
-        @media (max-width: 768px) {
-            body {
-                background-image: url('background-mobile.jpg');
             }
         }
     </style>
 </head>
 
+<style>
+    /* Add this to your existing CSS */
+    .store-buttons a img {
+        width: 24px;
+        height: 24px;
+        margin-right: 10px;
+        background-color: #6a11cb;
+        /* Contrasting color for visibility */
+        border-radius: 50%;
+        /* Makes it a circle */
+        padding: 4px;
+        /* Adds spacing inside the circle */
+    }
+</style>
+
 <body>
     <div class="container">
         <!-- Game Logo -->
         <div class="game-logo">
-            <img src="icon.png" alt="Drift Challenge Game Logo">
+            <img src="icon.png" alt="شعار لعبة تحدي التخمين" loading="lazy">
         </div>
 
         <!-- Game Title -->
@@ -135,18 +140,34 @@
         <!-- Store Buttons -->
         <div class="store-buttons">
             <a href="https://play.google.com/store/apps/details?id=com.raadgames.driftchallenge">
-                <img src="icons/android.png" alt="Google Play Logo"> جوجل بلا
+                <img src="icons/android.png" alt="شعار جوجل بلاي"> جوجل بلاي
             </a>
             <a href="https://apps.apple.com/us/app/drift-challenge/id123456789">
-                <img src="icons/ios.png" alt="App Store Logo"> ابل ستور
+                <img src="icons/ios.png" alt="شعار ابل ستور"> ابل ستور
             </a>
         </div>
 
         <!-- Game Preview Image -->
         <div class="game-preview">
-            <img src="banner.png" alt="Game Preview" loading="lazy">
+            <img src="banner.png" alt="عرض لعبة تحدي التخمين" loading="lazy">
         </div>
     </div>
+
+    <!-- Structured Data for SEO -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "تحدي التخمين - محاكي واقعي",
+        "url": "https://yourwebsite.com",
+        "description": "استمتع بأفضل لعبة درفت. قم بتنزيلها الآن من جوجل بلاي وابل ستور.",
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://yourwebsite.com/search?q={search_term_string}",
+            "query-input": "required name=search_term_string"
+        }
+    }
+    </script>
 </body>
 
 </html>
