@@ -5,16 +5,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Raad Games - Mobile Game Developer</title>
+  <meta property="og:title" content="Raad Games - Mobile Game Developer">
+  <meta property="og:description" content="Raad Games is a mobile game developer focusing on high-quality games.">
+  <meta property="og:image" content="https://raadgames.github.io/raadgames_white.png">
+  <meta property="og:url" content="https://raadgames.github.io">
+  <link rel="icon" type="image/png" href="img/favicon.png">
   <style>
+    /* General Styles */
     body {
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
       background: url('img/background9.jpg') no-repeat center center fixed;
-      /* Add your image path here */
       background-size: cover;
-      /* Makes the image cover the entire background */
       color: #ffffff;
+      line-height: 1.6;
     }
 
     body::before {
@@ -25,18 +30,17 @@
       width: 100%;
       height: 100%;
       background: rgba(0, 0, 0, 0.6);
-      /* Optional overlay for better text readability */
       z-index: -1;
-      /* Ensure it stays in the background */
     }
 
     header {
-      background-color: #00000069;
+      background: linear-gradient(135deg, #7e8185, #383d43);
       color: white;
       padding: 15px 20px;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
     }
 
     header .logo img {
@@ -47,36 +51,36 @@
       color: white;
       text-decoration: none;
       margin: 0 10px;
+      font-weight: bold;
+      transition: color 0.3s ease;
     }
 
     header nav a:hover {
-      text-decoration: underline;
+      color: #ffa72d;
     }
 
     .hero {
       text-align: center;
       padding: 50px 20px;
-      color: #ffffff;
-    }
-
-    .hero .logo {
-      margin-bottom: 20px;
     }
 
     .hero .logo img {
       width: 350px;
       height: auto;
+      animation: fadeIn 2s ease-in-out;
     }
 
     .hero h1 {
       margin: 0;
       font-size: 3rem;
       color: #ffa72d;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     }
 
     .hero p {
       margin: 20px 0;
       font-size: 1.2rem;
+      color: #ffffff;
     }
 
     .games {
@@ -87,6 +91,7 @@
       text-align: center;
       margin-bottom: 20px;
       color: #ffa72d;
+      font-size: 2rem;
     }
 
     .games-grid {
@@ -97,15 +102,19 @@
     }
 
     .game {
-      background: rgba(255, 255, 255, 0.8);
-      /* Slightly transparent background */
+      background: rgba(255, 255, 255, 0.1);
       border: 1px solid rgba(255, 255, 255, 0.2);
-      border-radius: 5px;
+      border-radius: 15px;
       overflow: hidden;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
       text-align: center;
       padding: 15px;
-      width: 300px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .game:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3);
     }
 
     .game img {
@@ -113,11 +122,18 @@
       height: 128px;
       margin: 10px 0;
       border-radius: 15%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .game img:hover {
+      transform: scale(1.1);
     }
 
     .game h3 {
       margin: 10px 0;
-      color: #000000;
+      color: #ffffff;
+      font-size: 1.2rem;
     }
 
     .game a {
@@ -131,12 +147,19 @@
       text-decoration: none;
       border-radius: 5px;
       font-size: 0.9rem;
+      transition: background 0.3s ease, color 0.3s ease;
     }
 
     .game a img {
       width: 16px;
       height: 16px;
       margin-right: 5px;
+      background-color: #ffa72d;
+      /* Contrasting color for visibility */
+      border-radius: 50%;
+      /* Makes it a circle */
+      padding: 4px;
+      /* Adds spacing inside the circle */
     }
 
     .game a:hover {
@@ -147,13 +170,29 @@
     footer {
       text-align: center;
       padding: 15px;
-      background-color: #00000081;
+      background: linear-gradient(135deg, #383d43, #7e8185);
       color: #ffffff;
     }
 
     footer a {
-      color: #ffffff;
+      color: #ffa72d;
       text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    footer a:hover {
+      color: #ffffff;
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
     }
   </style>
 </head>
@@ -175,10 +214,11 @@
     <div class="logo">
       <img src="img/portfolioIcon/raadgames.png" alt="Raad Games Logo">
     </div>
-    <p> 🌩 RG - Raad Games is a mobile game developer focusing on high quality games.</p>
+    <p>RG - Raad Games is a mobile game developer focusing on high-quality games.</p>
   </section>
 
   <section class="games" id="games">
+    <h2>Our Games</h2>
     <div class="games-grid">
       <div class="game">
         <img src="img/portfolio/DriftMAX.png" alt="Drift Max - Realistic">
