@@ -1,7 +1,7 @@
 {
     "name": "RAAD GAMES",
     "description": " Drift Max ",
-    
+
     "version" : "25.12.27",
     "versionIOS" : "25.12.30",
 
@@ -10,4 +10,6 @@
 
     "packageNameAndroid": "com.raadgames.DriftMax1",
     "packageNameIOS": "com.raadgames.OffRoadPro4x4"
+
+    
 }
