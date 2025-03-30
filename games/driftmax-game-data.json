@@ -1,10 +1,13 @@
 {
-    "name" : "RAAD GAMES",
-    "description" : " Drift Max ",
-
+    "name": "RAAD GAMES",
+    "description": " Drift Max ",
+    
     "version" : "25.12.27",
-    "versionIOS" : "25.12.26",
+    "versionIOS" : "25.12.30",
 
-    "urlAndroid" : "https://play.google.com/store/apps/details?id=com.raadgames.DriftMax",
-    "urlIOS" : "https://apps.apple.com/mt/app/drift-max-vi/id1484968297"
+    "urlAndroid": "https://play.google.com/store/apps/details?id=com.raadgames.DriftMax",
+    "urlIOS": "https://apps.apple.com/mt/app/drift-max-vi/id1484968297",
+
+    "packageNameAndroid": "com.raadgames.DriftMax1",
+    "packageNameIOS": "com.raadgames.OffRoadPro4x4"
 }
