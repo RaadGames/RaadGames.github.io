@@ -11,6 +11,7 @@
     "packageNameAndroid": "com.raadgames.DriftMax",
     "packageNameIOS": "com.raadgames.OffRoadPro4x4",
 
-    "isForceUpdateAndroid" : true,
+    "//": "This Need to fix!! , It should be >>false<< to not force updaate , but in the app in store need it to be true to not update !! i have fixed it , but need to upload new version",
+    "isForceUpdateAndroid" : true, 
     "isForceUpdateIOS" : true
 }
