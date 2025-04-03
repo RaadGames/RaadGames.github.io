@@ -9,5 +9,8 @@
     "urlIOS": "https://apps.apple.com/mt/app/drift-max-vi/id1484968297",
 
     "packageNameAndroid": "com.raadgames.DriftMax",
-    "packageNameIOS": "com.raadgames.OffRoadPro4x4"
+    "packageNameIOS": "com.raadgames.OffRoadPro4x4",
+
+    "isForceUpdateAndroid" : true,
+    "isForceUpdateIOS" : true
 }
