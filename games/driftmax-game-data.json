@@ -12,5 +12,5 @@
     "packageNameIOS": "com.raadgames.OffRoadPro4x4",
 
     "isForceUpdateAndroid" : true,
-    "isForceUpdateIOS" : false
+    "isForceUpdateIOS" : true
 }
