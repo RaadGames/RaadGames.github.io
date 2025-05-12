@@ -11,6 +11,6 @@
     "packageNameAndroid": "com.raadgames.guessingchallenge",
     "packageNameIOS": "com.raadgames.guessingchallenge",
 
-    "isForceUpdateAndroid" : true, 
-    "isForceUpdateIOS" : true
+    "isForceUpdateAndroid" : false, 
+    "isForceUpdateIOS" : false
 }
