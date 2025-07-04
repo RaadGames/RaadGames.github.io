@@ -11,6 +11,6 @@
     "packageNameAndroid": "com.raadgames.DriftMax",
     "packageNameIOS": "com.raadgames.OffRoadPro4x4",
 
-    "isForceUpdateAndroid" : true, 
-    "isForceUpdateIOS" : true
+    "isForceUpdateAndroid" : false, 
+    "isForceUpdateIOS" : false
 }
