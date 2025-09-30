@@ -11,6 +11,6 @@
     "packageNameAndroid": "com.raadgames.drbwaeh",
     "packageNameIOS": "com.raadgames.drbaweh22",
 
-    "isForceUpdateAndroid" : true, 
-    "isForceUpdateIOS" : true
+    "isForceUpdateAndroid" : false, 
+    "isForceUpdateIOS" : false
 }
