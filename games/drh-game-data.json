@@ -2,7 +2,7 @@
     "name": "RAAD GAMES",
     "description": "DRH",
 
-    "version" : "24.10.10",
+    "version" : "241.1",
     "versionIOS" : "241.1",
 
     "urlAndroid" : "https://play.google.com/store/apps/details?id=com.raadgames.drbwaeh",
@@ -11,6 +11,6 @@
     "packageNameAndroid": "com.raadgames.drbwaeh",
     "packageNameIOS": "com.raadgames.drbaweh22",
 
-    "isForceUpdateAndroid" : false, 
+    "isForceUpdateAndroid" : true, 
     "isForceUpdateIOS" : true
 }
