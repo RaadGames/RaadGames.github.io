@@ -2,11 +2,11 @@
     "name": "RAAD GAMES",
     "description": "KOH - King of Drift",
 
-    "version" : "220222568",
-    "versionIOS" : "220222567",
+    "version" : "220222570",
+    "versionIOS" : "220222570",
 
     "urlAndroid": "https://play.google.com/store/apps/details?id=king.raadgames",
-    "urlIOS": "",
+    "urlIOS": "https://apps.apple.com/jo/app/koh-king-of-hajwala/id1307551702",
 
     "packageNameAndroid": "",
     "packageNameIOS": "",
