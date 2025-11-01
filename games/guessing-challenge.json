@@ -2,7 +2,7 @@
     "name": "RAAD GAMES",
     "description": " ",
 
-    "version" : "1.6",
+    "version" : "1.7",
     "versionIOS" : "1.6",
 
     "urlAndroid": "https://play.google.com/store/apps/details?id=com.raadgames.guessingchallenge&pcampaignid=web_share",
@@ -11,6 +11,6 @@
     "packageNameAndroid": "com.raadgames.guessingchallenge",
     "packageNameIOS": "com.raadgames.guessingchallenge",
 
-    "isForceUpdateAndroid" : true, 
+    "isForceUpdateAndroid" : false, 
     "isForceUpdateIOS" : true
 }
