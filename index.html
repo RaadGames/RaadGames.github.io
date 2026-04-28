@@ -10,18 +10,39 @@
   <meta property="og:image" content="https://raadgames.github.io/raadgames_white.png">
   <meta property="og:url" content="https://raadgames.github.io">
   <link rel="icon" type="image/png" href="img/favicon.png">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
   <style>
+    /* CSS Variables for easy theme management */
+    :root {
+      --primary-color: #ffa72d;
+      --primary-hover: #ff8c00;
+      --bg-dark: #121418;
+      --card-bg: rgba(255, 255, 255, 0.05);
+      --card-border: rgba(255, 255, 255, 0.1);
+      --text-main: #ffffff;
+      --text-muted: #b0b3b8;
+    }
+
     /* General Styles */
+    html {
+      scroll-behavior: smooth; /* Smooth scrolling for nav links */
+    }
+
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Poppins', sans-serif;
       margin: 0;
       padding: 0;
       background: url('img/background9.jpg') no-repeat center center fixed;
       background-size: cover;
-      color: #ffffff;
+      color: var(--text-main);
       line-height: 1.6;
     }
 
+    /* Dark overlay for better text readability */
     body::before {
       content: '';
       position: fixed;
@@ -29,169 +50,287 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0, 0, 0, 0.6);
+      background: radial-gradient(circle at center, rgba(18, 20, 24, 0.7) 0%, rgba(0, 0, 0, 0.9) 100%);
       z-index: -1;
     }
 
+    /* Modern Glassmorphism Header */
     header {
-      background: linear-gradient(135deg, #7e8185, #383d43);
-      color: white;
-      padding: 15px 20px;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(20, 20, 20, 0.6);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      padding: 15px 0;
+      z-index: 1000;
+      transition: all 0.3s ease;
+    }
+
+    .header-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
     }
 
     header .logo img {
-      height: 50px;
+      height: 45px;
+      transition: transform 0.3s ease;
+    }
+
+    header .logo img:hover {
+      transform: scale(1.05);
     }
 
     header nav a {
-      color: white;
+      color: var(--text-main);
       text-decoration: none;
-      margin: 0 10px;
-      font-weight: bold;
+      margin: 0 15px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
       transition: color 0.3s ease;
+      position: relative;
+    }
+
+    /* Underline animation on hover */
+    header nav a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -4px;
+      left: 0;
+      background-color: var(--primary-color);
+      transition: width 0.3s ease;
+    }
+
+    header nav a:hover::after {
+      width: 100%;
     }
 
     header nav a:hover {
-      color: #ffa72d;
+      color: var(--primary-color);
     }
 
+    /* Hero Section */
     .hero {
       text-align: center;
-      padding: 50px 20px;
+      padding: 180px 20px 100px; /* Extra top padding to account for fixed header */
+      max-width: 800px;
+      margin: 0 auto;
     }
 
     .hero .logo img {
-      width: 350px;
+      width: 100%;
+      max-width: 400px;
       height: auto;
-      animation: fadeIn 2s ease-in-out;
-    }
-
-    .hero h1 {
-      margin: 0;
-      font-size: 3rem;
-      color: #ffa72d;
-      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      animation: fadeInUp 1.2s ease-out;
+      filter: drop-shadow(0px 10px 20px rgba(0,0,0,0.5));
     }
 
     .hero p {
-      margin: 20px 0;
-      font-size: 1.2rem;
-      color: #ffffff;
+      margin: 30px 0 0 0;
+      font-size: 1.25rem;
+      color: var(--text-muted);
+      font-weight: 300;
+      animation: fadeInUp 1.5s ease-out;
     }
 
-    .games {
-      padding: 20px;
-    }
-
-    .games h2 {
+    /* Section Headings */
+    .section-title {
       text-align: center;
-      margin-bottom: 20px;
-      color: #ffa72d;
-      font-size: 2rem;
+      margin-bottom: 50px;
+      color: var(--text-main);
+      font-size: 2.5rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+
+    .section-title span {
+      color: var(--primary-color);
+    }
+
+    /* Games Grid */
+    .games {
+      padding: 60px 20px;
+      max-width: 1200px;
+      margin: 0 auto;
     }
 
     .games-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
       justify-items: center;
     }
 
+    /* Pro Game Card Design */
     .game {
-      background: rgba(255, 255, 255, 0.1);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      border-radius: 15px;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 20px;
       overflow: hidden;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
       text-align: center;
-      padding: 15px;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      padding: 30px 20px;
+      width: 100%;
+      box-sizing: border-box;
+      backdrop-filter: blur(5px);
+      transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
     }
 
     .game:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3);
+      transform: translateY(-12px);
+      box-shadow: 0 15px 40px rgba(255, 167, 45, 0.15);
+      border-color: rgba(255, 167, 45, 0.3);
     }
 
-    .game img {
-      width: 128px;
-      height: 128px;
-      margin: 10px 0;
-      border-radius: 15%;
+    .game img.game-icon {
+      width: 140px;
+      height: 140px;
+      margin-bottom: 20px;
+      border-radius: 22.5%;
       object-fit: cover;
-      transition: transform 0.3s ease;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+      transition: transform 0.4s ease;
     }
 
-    .game img:hover {
-      transform: scale(1.1);
+    .game:hover img.game-icon {
+      transform: scale(1.08) rotate(-2deg);
     }
 
     .game h3 {
-      margin: 10px 0;
-      color: #ffffff;
-      font-size: 1.2rem;
+      margin: 0 0 20px 0;
+      color: var(--text-main);
+      font-size: 1.4rem;
+      font-weight: 600;
+    }
+
+    /* Premium Button Styling */
+    .store-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      align-items: center;
     }
 
     .game a {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      margin: 5px;
-      padding: 0px 15px;
-      background: #ffa72d;
-      color: #ffffff;
+      width: 80%;
+      padding: 12px 20px;
+      background: linear-gradient(135deg, var(--primary-color), var(--primary-hover));
+      color: #fff;
       text-decoration: none;
-      border-radius: 5px;
-      font-size: 0.9rem;
-      transition: background 0.3s ease, color 0.3s ease;
+      border-radius: 50px; /* Pill shape */
+      font-size: 0.95rem;
+      font-weight: 600;
+      box-shadow: 0 4px 15px rgba(255, 167, 45, 0.3);
+      transition: all 0.3s ease;
     }
 
     .game a img {
-      width: 16px;
-      height: 16px;
-      margin-right: 5px;
-      background-color: #ffa72d;
-      /* Contrasting color for visibility */
-      border-radius: 50%;
-      /* Makes it a circle */
-      padding: 4px;
-      /* Adds spacing inside the circle */
+      width: 20px;
+      height: 20px;
+      margin-right: 10px;
+      filter: brightness(0) invert(1); /* Makes icons pure white if they aren't already */
     }
 
     .game a:hover {
-      background: #ffffff;
-      color: #ffa72d;
+      background: linear-gradient(135deg, #fff, #f0f0f0);
+      color: var(--primary-hover);
+      box-shadow: 0 6px 20px rgba(255, 255, 255, 0.3);
     }
 
+    .game a:hover img {
+      filter: none; /* Reverts icon back to original colors on hover */
+    }
+
+    /* About Section */
+    #about {
+      padding: 80px 20px;
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto;
+      border-top: 1px solid var(--card-border);
+    }
+
+    #about p {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      line-height: 1.8;
+      margin-bottom: 30px;
+    }
+
+    .contact-email {
+      display: inline-block;
+      font-size: 1.1rem;
+      color: var(--primary-color);
+      text-decoration: none;
+      font-weight: 600;
+      padding: 10px 25px;
+      border: 2px solid var(--primary-color);
+      border-radius: 50px;
+      transition: all 0.3s ease;
+    }
+
+    .contact-email:hover {
+      background-color: var(--primary-color);
+      color: #fff;
+      box-shadow: 0 4px 15px rgba(255, 167, 45, 0.3);
+    }
+
+    /* Footer */
     footer {
       text-align: center;
-      padding: 15px;
-      background: linear-gradient(135deg, #383d43, #7e8185);
-      color: #ffffff;
+      padding: 30px 20px;
+      background: rgba(10, 10, 10, 0.8);
+      border-top: 1px solid var(--card-border);
+      color: var(--text-muted);
+      font-size: 0.9rem;
     }
 
     footer a {
-      color: #ffa72d;
+      color: var(--primary-color);
       text-decoration: none;
+      font-weight: 600;
       transition: color 0.3s ease;
     }
 
     footer a:hover {
-      color: #ffffff;
+      color: #fff;
     }
 
     /* Animations */
-    @keyframes fadeIn {
+    @keyframes fadeInUp {
       from {
         opacity: 0;
+        transform: translateY(30px);
       }
-
       to {
         opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .header-container {
+        flex-direction: column;
+        gap: 15px;
+      }
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+      .hero {
+        padding-top: 150px;
       }
     }
   </style>
@@ -200,97 +339,113 @@
 <body>
 
   <header>
-    <div class="logo">
-      <img src="img/portfolioIcon/raadgames_white.png" alt="Raad Games Logo">
+    <div class="header-container">
+      <div class="logo">
+        <img src="img/portfolioIcon/raadgames_white.png" alt="Raad Games Logo">
+      </div>
+      <nav>
+        <a href="#home">Home</a>
+        <a href="#games">Games</a>
+        <a href="#about">About</a>
+        <a href="support.html">Support</a> </nav>
     </div>
-    <nav>
-      <a href="#home">Home</a>
-      <a href="#games">Games</a>
-      <a href="#about">About</a>
-    </nav>
   </header>
 
   <section class="hero" id="home">
     <div class="logo">
       <img src="img/portfolioIcon/raadgames.png" alt="Raad Games Logo">
     </div>
-    <p>RG - Raad Games is a mobile game developer focusing on high-quality games.</p>
+    <p>We craft high-quality, thrilling mobile gaming experiences.</p>
   </section>
 
   <section class="games" id="games">
-    <!-- <h2>Our Games</h2> -->
+    <h2 class="section-title">Our <span>Games</span></h2>
     <div class="games-grid">
 
-      <!-- <h2>Start</h2> -->
       <div class="game">
-        <img src="img/portfolio/DriftMAX.png" alt="Drift Max - Realistic">
+        <img src="img/portfolio/DriftMAX.png" alt="Drift Max - Realistic" class="game-icon">
         <h3>Drift Max - Realistic</h3>
-        <a href="https://play.google.com/store/apps/details?id=com.raadgames.DriftMax">
-          <img src="img/icons/android.png" alt="Android Logo"> Google Play
-        </a>
-        <a href="https://apps.apple.com/us/app/drift-max-vi/id1484968297">
-          <img src="img/icons/ios.png" alt="iOS Logo"> App Store
-        </a>
+        <div class="store-buttons">
+          <a href="https://play.google.com/store/apps/details?id=com.raadgames.DriftMax">
+            <img src="img/icons/android.png" alt="Android Logo"> Google Play
+          </a>
+          <a href="https://apps.apple.com/us/app/drift-max-vi/id1484968297">
+            <img src="img/icons/ios.png" alt="iOS Logo"> App Store
+          </a>
+        </div>
       </div>
-      <!-- <h2>End</h2> -->
+
       <div class="game">
-        <img src="img/portfolio/DRH.png" alt="درباوية">
+        <img src="img/portfolio/DRH.png" alt="درباوية" class="game-icon">
         <h3>درباوية</h3>
-        <a href="https://play.google.com/store/apps/details?id=com.raadgames.drbwaeh">
-          <img src="img/icons/android.png" alt="Android Logo"> Google Play
-        </a>
-        <a href="https://apps.apple.com/us/app/%D8%AF%D8%B1%D8%A8%D8%A7%D9%88%D9%8A%D8%A9/id1307723507">
-          <img src="img/icons/ios.png" alt="iOS Logo"> App Store
-        </a>
+        <div class="store-buttons">
+          <a href="https://play.google.com/store/apps/details?id=com.raadgames.drbwaeh">
+            <img src="img/icons/android.png" alt="Android Logo"> Google Play
+          </a>
+          <a href="https://apps.apple.com/us/app/%D8%AF%D8%B1%D8%A8%D8%A7%D9%88%D9%8A%D8%A9/id1307723507">
+            <img src="img/icons/ios.png" alt="iOS Logo"> App Store
+          </a>
+        </div>
       </div>
+
       <div class="game">
-        <img src="img/portfolio/GC.png" alt="تحدي التخمين">
+        <img src="img/portfolio/GC.png" alt="تحدي التخمين" class="game-icon">
         <h3>تحدي التخمين</h3>
-        <a href="https://play.google.com/store/apps/details?id=com.raadgames.guessingchallenge">
-          <img src="img/icons/android.png" alt="Android Logo"> Google Play
-        </a>
-        <a
-          href="https://apps.apple.com/ar/app/%D8%AA%D8%AD%D8%AF%D9%8A-%D8%A7%D9%84%D8%AA%D8%AE%D9%85%D9%8A%D9%86/id6742692615?platform=iphone">
-          <img src="img/icons/ios.png" alt="iOS Logo"> App Store
-        </a>
+        <div class="store-buttons">
+          <a href="https://play.google.com/store/apps/details?id=com.raadgames.guessingchallenge">
+            <img src="img/icons/android.png" alt="Android Logo"> Google Play
+          </a>
+          <a href="https://apps.apple.com/ar/app/%D8%AA%D8%AD%D8%AF%D9%8A-%D8%A7%D9%84%D8%AA%D8%AE%D9%85%D9%8A%D9%86/id6742692615?platform=iphone">
+            <img src="img/icons/ios.png" alt="iOS Logo"> App Store
+          </a>
+        </div>
       </div>
+
       <div class="game">
-        <img src="img/portfolio/KOH.png" alt="KOH">
+        <img src="img/portfolio/KOH.png" alt="KOH" class="game-icon">
         <h3>KOH</h3>
-        <a href="https://play.google.com/store/apps/details?id=king.raadgames">
-          <img src="img/icons/android.png" alt="Android Logo"> Google Play
-        </a>
-        <a href="https://apps.apple.com/us/app/koh-king-of-hajwala/id1307551702">
-          <img src="img/icons/ios.png" alt="iOS Logo"> App Store
-        </a>
+        <div class="store-buttons">
+          <a href="https://play.google.com/store/apps/details?id=king.raadgames">
+            <img src="img/icons/android.png" alt="Android Logo"> Google Play
+          </a>
+          <a href="https://apps.apple.com/us/app/koh-king-of-hajwala/id1307551702">
+            <img src="img/icons/ios.png" alt="iOS Logo"> App Store
+          </a>
+        </div>
       </div>
+
       <div class="game">
-        <img src="img/portfolio/RTS PRO - Battle Simulator.png" alt="RTS PRO - Battle Simulator">
-        <h3>RTS PRO - Battle Simulator</h3>
-        <a href="https://apps.apple.com/us/app/rts-pro-battle-simulator/id1510833981">
-          <img src="img/icons/ios.png" alt="iOS Logo"> App Store
-        </a>
+        <img src="img/portfolio/RTS PRO - Battle Simulator.png" alt="RTS PRO - Battle Simulator" class="game-icon">
+        <h3>RTS PRO</h3>
+        <div class="store-buttons">
+          <a href="https://apps.apple.com/us/app/rts-pro-battle-simulator/id1510833981">
+            <img src="img/icons/ios.png" alt="iOS Logo"> App Store
+          </a>
+        </div>
       </div>
+
       <div class="game">
-        <img src="img/portfolio/Space Debris Pro.png" alt="Space Debris Pro">
+        <img src="img/portfolio/Space Debris Pro.png" alt="Space Debris Pro" class="game-icon">
         <h3>Space Debris Pro</h3>
-        <a href="https://apps.apple.com/us/app/space-debris-pro/id1448206810">
-          <img src="img/icons/ios.png" alt="iOS Logo"> App Store
-        </a>
+        <div class="store-buttons">
+          <a href="https://apps.apple.com/us/app/space-debris-pro/id1448206810">
+            <img src="img/icons/ios.png" alt="iOS Logo"> App Store
+          </a>
+        </div>
       </div>
+
     </div>
   </section>
 
-  <section id="about" style="padding: 20px; text-align: center;">
-    <h2>About Us</h2>
+  <section id="about">
+    <h2 class="section-title">About <span>Us</span></h2>
     <p>Raad Games is dedicated to creating innovative and engaging mobile games that players love. From thrilling car
       racing to immersive adventures, we aim to deliver the best gaming experiences on the go.</p>
+    <a href="mailto:support@raadgames.com" class="contact-email">support@raadgames.com</a>
   </section>
 
   <footer>
-    <p>&copy; 2025 Raad Games. All Rights Reserved. | <a href="https://raadgames.github.io/privacy-policy/">Privacy
-        Policy</a></p>
-  </footer>
+    <p>&copy; 2026 Raad Games. All Rights Reserved. | <a href="support.html">Support Center</a> | <a href="https://raadgames.github.io/privacy-policy/">Privacy Policy</a></p> </footer>
 
 </body>
 

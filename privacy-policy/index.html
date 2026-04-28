@@ -1,59 +1,163 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Privacy Policy - RAADGAMES</title>
+    <title>Privacy Policy - Raad Games</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    
     <style>
+        /* Shared CSS Variables from your main site */
+        :root {
+            --primary-color: #ffa72d;
+            --bg-dark: #121418;
+            --card-bg: rgba(255, 255, 255, 0.05);
+            --card-border: rgba(255, 255, 255, 0.1);
+            --text-main: #ffffff;
+            --text-muted: #b0b3b8;
+        }
+
         body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.8;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            background-color: var(--bg-dark);
+            /* Subtle dark gradient background */
+            background-image: radial-gradient(circle at top center, rgba(30, 34, 40, 1) 0%, rgba(18, 20, 24, 1) 100%);
+            color: var(--text-muted);
+            min-height: 100vh;
         }
+
+        /* Navigation Header */
+        .header {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 30px 20px 0;
+        }
+
+        .back-btn {
+            color: var(--text-main);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            display: inline-flex;
+            align-items: center;
+            transition: color 0.3s ease;
+        }
+
+        .back-btn:hover {
+            color: var(--primary-color);
+        }
+
+        /* Pro Container Styling */
         .container {
             max-width: 800px;
-            margin: 30px auto;
-            padding: 20px;
-            background: #ffffff;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 20px auto 50px;
+            padding: 40px;
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
         }
+
+        h1, h2 {
+            color: var(--text-main);
+            font-weight: 600;
+        }
+
         h1 {
-            color: #333333;
             text-align: center;
-            margin-bottom: 20px;
+            margin-top: 0;
+            margin-bottom: 30px;
+            font-size: 2.2rem;
+            border-bottom: 1px solid var(--card-border);
+            padding-bottom: 20px;
         }
+
+        h2 {
+            margin-top: 40px;
+            font-size: 1.4rem;
+            color: var(--primary-color);
+        }
+
         p {
-            margin: 10px 0;
-            color: #555555;
+            margin: 15px 0;
         }
+
+        /* Premium List Styling */
         ul {
             list-style-type: none;
             padding: 0;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 15px;
+            padding: 20px;
+            border: 1px solid var(--card-border);
         }
+
         ul li {
-            margin: 10px 0;
+            margin: 12px 0;
+            display: flex;
+            align-items: center;
         }
+
+        /* Custom orange bullet points */
+        ul li::before {
+            content: '•';
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            margin-right: 15px;
+            line-height: 1;
+        }
+
         a {
-            color: #007BFF;
+            color: var(--primary-color);
             text-decoration: none;
+            transition: all 0.3s ease;
         }
+
         a:hover {
+            color: #fff;
             text-decoration: underline;
         }
-        .contact {
-            margin-top: 20px;
-        }
+
         .update {
-            margin-top: 20px;
+            margin-top: 50px;
+            font-size: 0.9rem;
+            text-align: center;
+            border-top: 1px solid var(--card-border);
+            padding-top: 20px;
+            color: var(--text-muted);
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .container {
+                margin: 20px;
+                padding: 25px;
+            }
+            h1 {
+                font-size: 1.8rem;
+            }
         }
     </style>
 </head>
+
 <body>
+    
+    <div class="header">
+        <a href="https://raadgames.github.io/" class="back-btn">&larr; Back to Home</a>
+    </div>
+
     <div class="container">
         <h1>Privacy Policy</h1>
+        
         <p>RAADGAMES built this app as an Ad Supported app. This SERVICE is provided by RAADGAMES at no cost and is intended for use as is.</p>
         <p>This page is used to inform visitors regarding our policies with the collection, use, and disclosure of Personal Information if anyone decides to use our Service.</p>
         <p>If you choose to use our Service, then you agree to the collection and use of information in relation to this policy. The Personal Information that we collect is used for providing and improving the Service. We will not use or share your information with anyone except as described in this Privacy Policy.</p>
@@ -63,18 +167,21 @@
         <p>For a better experience, while using our Service, we may require you to provide certain personally identifiable information. The information that we request will be retained on your device and is not collected by us in any way.</p>
         <p>The app does use third-party services that may collect information used to identify you.</p>
         <p>Links to the privacy policies of third-party service providers used by the app:</p>
+        
         <ul>
             <li><a href="https://policies.google.com/privacy" target="_blank">Google Play Services</a></li>
             <li><a href="https://support.google.com/admob/answer/6128543?hl=en" target="_blank">AdMob</a></li>
             <li><a href="https://unity3d.com/legal/privacy-policy" target="_blank">Unity Analytics</a></li>
-            <li><a href="https://firebase.google.com/support/privacy?utm_source=chatgpt.com" target="_blank">Firebase</a></li>
+            <li><a href="https://firebase.google.com/support/privacy" target="_blank">Firebase</a></li>
         </ul>
         
         <h2>Contact Us</h2>
-        <p>If you require any more information or have any questions about our privacy policy, please feel free to contact us by email at <a href="mailto:raadgames.net@gmail.com">raadgames.net@gmail.com</a>.</p>
+        <p>If you require any more information or have any questions about our privacy policy, please feel free to contact us by email at <a href="mailto:support@raadgames.com">support@raadgames.com</a>.</p>
         
-        <h2 class="update">Updates</h2>
-        <p>This Privacy Policy was last updated on: 17/1/2025. Should we update, amend, or make any changes to our privacy policy, those changes will be posted here.</p>
+        <div class="update">
+            <p>This Privacy Policy was last updated on: 29/4/2026. Should we update, amend, or make any changes to our privacy policy, those changes will be posted here.</p>
+        </div>
     </div>
+
 </body>
 </html>

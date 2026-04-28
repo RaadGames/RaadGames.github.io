@@ -1,171 +1,221 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>تحدي التخمين</title>
     <meta name="description" content="تحدي التخمين قم بتنزيلها الآن من جوجل بلاي وابل ستور.">
-    <meta name="keywords" content="تحدي التخمين, ,لعبة رمضان,لعبة اسئلة , لعبة موبايل">
+    <meta name="keywords" content="تحدي التخمين, لعبة رمضان, لعبة اسئلة, لعبة موبايل">
     <meta name="author" content="RAAD GAMES">
+    
     <meta property="og:title" content="تحدي التخمين - السهره معنا احلا ">
     <meta property="og:description" content="قم بتنزيلها الآن من جوجل بلاي وابل ستور.">
     <meta property="og:image" content="icon.png">
-    <meta property="og:url" content="RAAD GAMES">
+    <meta property="og:url" content="https://raadgames.github.io/share-games/gc/">
+    
     <link rel="icon" type="image/png" href="favicon.png">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+    
     <style>
+        /* Shared CSS Variables */
+        :root {
+            --theme-color: #6a11cb;
+            --theme-alt: #2575fc;
+            --card-bg: rgba(255, 255, 255, 0.15);
+            --card-border: rgba(255, 255, 255, 0.2);
+            --text-main: #ffffff;
+        }
+
         /* General Styles */
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Cairo', sans-serif;
             margin: 0;
             padding: 0;
-            background: linear-gradient(135deg, #6a11cb, #2575fc);
-            color: #ffffff;
+            /* Animated Gradient Background */
+            background: linear-gradient(-45deg, #6a11cb, #2575fc, #8e2de2, #4a00e0);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            color: var(--text-main);
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            min-height: 100vh;
             overflow-x: hidden;
         }
 
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Glassmorphism Container */
         .container {
             width: 90%;
-            max-width: 450px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 20px;
+            max-width: 420px;
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 24px;
             text-align: center;
-            padding: 30px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            backdrop-filter: blur(10px);
+            padding: 40px 30px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            
+            /* Entrance Animation */
+            animation: fadeInUp 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+            opacity: 0;
+            transform: translateY(30px);
         }
 
         .game-logo img {
-            width: 150px;
-            height: 150px;
-            border-radius: 20px;
+            width: 140px;
+            height: 140px;
+            border-radius: 25%;
             margin-bottom: 20px;
             object-fit: cover;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+            transition: transform 0.4s ease;
+        }
+
+        .game-logo img:hover {
+            transform: scale(1.05) rotate(-3deg);
         }
 
         h1 {
-            font-size: 26px;
-            color: #ffffff;
-            margin-bottom: 15px;
+            font-size: 28px;
+            color: var(--text-main);
+            margin-top: 0;
+            margin-bottom: 25px;
+            font-weight: 900;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
         }
 
+        /* App Store Buttons */
         .store-buttons {
-            margin-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 30px;
         }
 
         .store-buttons a {
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 12px 20px;
-            margin: 10px auto;
-            width: 90%;
-            max-width: 280px;
+            padding: 14px 20px;
+            width: 100%;
+            box-sizing: border-box;
             background: #ffffff;
-            color: #6a11cb;
+            color: var(--theme-color);
             text-decoration: none;
-            border-radius: 10px;
+            border-radius: 50px; /* Pill shape for premium feel */
             font-size: 18px;
-            font-weight: bold;
+            font-weight: 700;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
             transition: all 0.3s ease;
         }
 
         .store-buttons a img {
             width: 24px;
             height: 24px;
-            margin-right: 10px;
+            margin-left: 12px; /* Changed to left for RTL */
+            background-color: var(--theme-color);
+            border-radius: 50%;
+            padding: 5px;
+            transition: all 0.3s ease;
         }
 
         .store-buttons a:hover {
-            background: #6a11cb;
+            background: var(--theme-color);
             color: #ffffff;
-            transform: scale(1.05);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
         }
 
+        .store-buttons a:hover img {
+            background-color: #ffffff;
+            filter: brightness(0) saturate(100%) invert(21%) sepia(85%) saturate(3015%) hue-rotate(258deg) brightness(85%) contrast(106%); /* Turns the icon inside the circle purple */
+        }
+
+        /* Banner Preview */
         .game-preview img {
             width: 100%;
-            max-width: 300px;
+            max-width: 320px;
             height: auto;
-            border-radius: 15px;
-            margin-top: 15px;
+            border-radius: 16px;
             object-fit: cover;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            transition: transform 0.4s ease;
+        }
+
+        .game-preview img:hover {
+            transform: scale(1.03);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         /* Mobile-Specific Styles */
         @media (max-width: 480px) {
-            h1 {
-                font-size: 22px;
-            }
-
-            .store-buttons a {
-                padding: 15px 25px;
-            }
-
             .container {
-                padding: 15px;
+                padding: 30px 20px;
+            }
+            h1 {
+                font-size: 24px;
+            }
+            .store-buttons a {
+                font-size: 16px;
+                padding: 12px 20px;
             }
         }
     </style>
 </head>
 
-<style>
-    /* Add this to your existing CSS */
-    .store-buttons a img {
-        width: 24px;
-        height: 24px;
-        margin-right: 10px;
-        background-color: #6a11cb;
-        /* Contrasting color for visibility */
-        border-radius: 50%;
-        /* Makes it a circle */
-        padding: 4px;
-        /* Adds spacing inside the circle */
-    }
-</style>
-
 <body>
     <div class="container">
-        <!-- Game Logo -->
         <div class="game-logo">
             <img src="icon.png" alt="شعار لعبة تحدي التخمين" loading="lazy">
         </div>
 
-        <!-- Game Title -->
         <h1>تحدي التخمين</h1>
 
-        <!-- Store Buttons -->
         <div class="store-buttons">
             <a href="https://play.google.com/store/apps/details?id=com.raadgames.guessingchallenge">
-                <img src="icons/android.png" alt="شعار جوجل بلاي"> جوجل بلاي
+                <img src="icons/android.png" alt="شعار جوجل بلاي"> احصل عليه من جوجل بلاي
             </a>
-            <a
-                href="https://apps.apple.com/ar/app/%D8%AA%D8%AD%D8%AF%D9%8A-%D8%A7%D9%84%D8%AA%D8%AE%D9%85%D9%8A%D9%86/id6742692615?platform=iphone">
-                <img src="icons/ios.png" alt="شعار ابل ستور"> ابل ستور
+            <a href="https://apps.apple.com/ar/app/%D8%AA%D8%AD%D8%AF%D9%8A-%D8%A7%D9%84%D8%AA%D8%AE%D9%85%D9%8A%D9%86/id6742692615?platform=iphone">
+                <img src="icons/ios.png" alt="شعار ابل ستور"> حمله من آبل ستور
             </a>
         </div>
 
-        <!-- Game Preview Image -->
         <div class="game-preview">
             <img src="banner.png" alt="عرض لعبة تحدي التخمين" loading="lazy">
         </div>
     </div>
-    <!-- Structured Data for SEO -->
+    
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
-        "@type": "WebSite",
+        "@type": "SoftwareApplication",
         "name": "تحدي التخمين",
         "url": "https://raadgames.github.io/share-games/gc/",
-        "description": "استمتع بلعبة تحدي التخمين واختبر معلوماتك! قم بتنزيلها الآن.",
-        "potentialAction": {
-            "@type": "SearchAction",
-            "target": "https://raadgames.github.io/share-games/gc/search?q={search_term_string}",
-            "query-input": "required name=search_term_string"
-        }
+        "author": {
+            "@type": "Organization",
+            "name": "RAAD GAMES"
+        },
+        "description": "استمتع بلعبة تحدي التخمين واختبر معلوماتك! قم بتنزيلها الآن من جوجل بلاي وآبل ستور.",
+        "applicationCategory": "GameApplication",
+        "operatingSystem": "iOS, Android"
     }
     </script>
 </body>
