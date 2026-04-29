@@ -27,6 +27,45 @@
       --text-muted: #b0b3b8;
     }
 
+    /* PRELOADER STYLES */
+    #preloader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: var(--bg-dark);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      transition: opacity 0.6s ease, visibility 0.6s;
+      pointer-events: none;
+    }
+
+    #preloader:not(.loader-hidden) {
+      pointer-events: all;
+    }
+
+    .loader {
+      width: 50px;
+      height: 50px;
+      border: 5px solid rgba(255, 167, 45, 0.1);
+      border-top: 5px solid var(--primary-color);
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .loader-hidden {
+      opacity: 0;
+      visibility: hidden;
+    }
+
     /* General Styles */
     html {
       scroll-behavior: smooth;
@@ -38,10 +77,9 @@
       padding: 0;
       color: var(--text-main);
       line-height: 1.6;
-      background-color: var(--bg-dark); /* Fallback color */
+      background-color: var(--bg-dark); 
     }
 
-    /* Fixed Background Image and Overlay combined - Fixes Mobile Zoom Issue */
     body::before {
       content: '';
       position: fixed;
@@ -58,7 +96,6 @@
       z-index: -1;
     }
 
-    /* Modern Glassmorphism Header */
     header {
       position: fixed;
       top: 0;
@@ -102,7 +139,6 @@
       position: relative;
     }
 
-    /* Underline animation on hover */
     header nav a::after {
       content: '';
       position: absolute;
@@ -122,7 +158,6 @@
       color: var(--primary-color);
     }
 
-    /* Hero Section */
     .hero {
       text-align: center;
       padding: 180px 20px 100px;
@@ -146,7 +181,6 @@
       animation: fadeInUp 1.5s ease-out;
     }
 
-    /* Section Headings */
     .section-title {
       text-align: center;
       margin-bottom: 50px;
@@ -160,7 +194,6 @@
       color: var(--primary-color);
     }
 
-    /* Games Grid */
     .games {
       padding: 60px 20px;
       max-width: 1200px;
@@ -174,7 +207,6 @@
       justify-items: center;
     }
 
-    /* Pro Game Card Design */
     .game {
       background: var(--card-bg);
       border: 1px solid var(--card-border);
@@ -216,7 +248,6 @@
       font-weight: 600;
     }
 
-    /* Premium Button Styling */
     .store-buttons {
       display: flex;
       flex-direction: column;
@@ -257,7 +288,6 @@
       filter: none;
     }
 
-    /* About Section */
     #about {
       padding: 80px 20px;
       text-align: center;
@@ -291,7 +321,6 @@
       box-shadow: 0 4px 15px rgba(255, 167, 45, 0.3);
     }
 
-    /* Footer */
     footer {
       text-align: center;
       padding: 30px 20px;
@@ -312,7 +341,6 @@
       color: #fff;
     }
 
-    /* Animations */
     @keyframes fadeInUp {
       from {
         opacity: 0;
@@ -324,14 +352,10 @@
       }
     }
 
-    /* Responsive adjustments */
     @media (max-width: 768px) {
       .header-container {
         flex-direction: column;
         gap: 15px;
-      }
-      .hero h1 {
-        font-size: 2.5rem;
       }
       .hero {
         padding-top: 150px;
@@ -341,6 +365,10 @@
 </head>
 
 <body>
+
+  <div id="preloader">
+    <div class="loader"></div>
+  </div>
 
   <header>
     <div class="header-container">
@@ -450,6 +478,13 @@
 
   <footer>
     <p>&copy; 2026 Raad Games. All Rights Reserved. | <a href="support">Support Center</a> | <a href="privacy-policy">Privacy Policy</a></p> </footer>
+
+  <script>
+    window.addEventListener("load", function() {
+      const loader = document.getElementById("preloader");
+      loader.classList.add("loader-hidden");
+    });
+  </script>
 
 </body>
 
