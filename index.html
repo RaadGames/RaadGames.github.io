@@ -10,7 +10,7 @@
   <meta property="og:image" content="https://raadgames.com/raadgames_white.png">
   <meta property="og:url" content="https://raadgames.com">
   <link rel="icon" type="image/png" href="img/favicon.png">
-  
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -57,8 +57,13 @@
     }
 
     @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
     }
 
     .loader-hidden {
@@ -77,7 +82,7 @@
       padding: 0;
       color: var(--text-main);
       line-height: 1.6;
-      background-color: var(--bg-dark); 
+      background-color: var(--bg-dark);
     }
 
     body::before {
@@ -87,7 +92,7 @@
       left: 0;
       width: 100vw;
       height: 100vh;
-      background-image: 
+      background-image:
         radial-gradient(circle at center, rgba(18, 20, 24, 0.7) 0%, rgba(0, 0, 0, 0.9) 100%),
         url('img/background9.jpg');
       background-position: center center;
@@ -170,7 +175,7 @@
       max-width: 400px;
       height: auto;
       animation: fadeInUp 1.2s ease-out;
-      filter: drop-shadow(0px 10px 20px rgba(0,0,0,0.5));
+      filter: drop-shadow(0px 10px 20px rgba(0, 0, 0, 0.5));
     }
 
     .hero p {
@@ -346,6 +351,7 @@
         opacity: 0;
         transform: translateY(30px);
       }
+
       to {
         opacity: 1;
         transform: translateY(0);
@@ -357,6 +363,7 @@
         flex-direction: column;
         gap: 15px;
       }
+
       .hero {
         padding-top: 150px;
       }
@@ -379,12 +386,14 @@
         <a href="#home">Home</a>
         <a href="#games">Games</a>
         <a href="#about">About</a>
-        <a href="support">Support</a> </nav>
+        <a href="support">Support</a>
+      </nav>
     </div>
   </header>
 
   <section class="hero" id="home">
     <div class="logo">
+      <div class="badge-2017">Since  2017</div>
       <img src="img/portfolioIcon/raadgames.png" alt="Raad Games Logo">
     </div>
     <p>We craft high-quality, thrilling mobile gaming experiences.</p>
@@ -427,7 +436,8 @@
           <a href="https://play.google.com/store/apps/details?id=com.raadgames.guessingchallenge">
             <img src="img/icons/android.png" alt="Android Logo"> Google Play
           </a>
-          <a href="https://apps.apple.com/ar/app/%D8%AA%D8%AD%D8%AF%D9%8A-%D8%A7%D9%84%D8%AA%D8%AE%D9%85%D9%8A%D9%86/id6742692615?platform=iphone">
+          <a
+            href="https://apps.apple.com/ar/app/%D8%AA%D8%AD%D8%AF%D9%8A-%D8%A7%D9%84%D8%AA%D8%AE%D9%85%D9%8A%D9%86/id6742692615?platform=iphone">
             <img src="img/icons/ios.png" alt="iOS Logo"> App Store
           </a>
         </div>
@@ -476,13 +486,36 @@
     <a href="mailto:support@raadgames.com" class="contact-email">support@raadgames.com</a>
   </section>
 
+
+  <section id="about">
+    <div class="about-container">
+      <h2 class="section-title">Meet <span>Raad</span></h2>
+      <div class="about-content">
+        <p>
+          My journey started in <strong>2017</strong> as a passion project driven by a love for immersive mobile gaming.
+          As a <strong>solo developer</strong>, I handle everything from design to code,
+          ensuring every game has a unique heart and high quality polish.
+        </p>
+        <p>
+          Raad Games is more than just a studio it's a commitment to creating high quality,
+          thrilling experiences that stay with you. Thank you for being part of this journey!
+        </p>
+        <div class="about-footer">
+          <a href="mailto:admin@raadgames.com" class="contact-email">Connect with Me</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <footer>
-    <p>&copy; 2026 Raad Games. All Rights Reserved. | <a href="support">Support Center</a> | <a href="privacy-policy">Privacy Policy</a></p> </footer>
+    <p>&copy; 2026 Raad Games. All Rights Reserved. | <a href="support">Support Center</a> | <a
+        href="privacy-policy">Privacy Policy</a></p>
+  </footer>
 
   <script>
-    window.addEventListener("load", function() {
-     
-      setTimeout(function() {
+    window.addEventListener("load", function () {
+
+      setTimeout(function () {
         const loader = document.getElementById("preloader");
         loader.classList.add("loader-hidden");
       }, 1500); // Change 1500 to 2000 for 2 seconds, 3000 for 3 seconds, etc.
