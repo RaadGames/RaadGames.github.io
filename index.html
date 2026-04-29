@@ -169,37 +169,50 @@
 
     .hero {
       text-align: center;
-      padding: 180px 20px 0px;
+      padding: 120px 20px 20px;
       max-width: 800px;
       margin: 0 auto;
-      min-height: 300px;
+      min-height: 380px;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      min-height: 400px;
+      position: relative;
       overflow: visible;
     }
 
     .hero .logo img {
       width: 100%;
       max-width: 400px;
-      height: auto;
-      animation: fadeInUp 1.2s ease-out;
+      /* By setting a height/min-height here, the section 
+     won't collapse if the image fails to load */
+      height: 180px;
+      object-fit: contain;
+
+      animation: fadeInUp 1.2s ease-out forwards;
       filter: drop-shadow(0px 10px 20px rgba(0, 0, 0, 0.5));
+
+      /* Optimizes for scrolling performance */
+      will-change: transform, opacity;
+    }
+
+    .hero .logo img,
+    .hero p {
+      animation-fill-mode: forwards !important;
     }
 
     .hero p {
-      margin: 30px 0 0 0;
+      margin: 15px 0 0 0;
       font-size: 1.25rem;
       color: var(--text-muted);
       font-weight: 300;
-      animation: fadeInUp 1.5s ease-out;
+      animation: fadeInUp 1.5s ease-out forwards;
     }
 
     .section-title {
       text-align: center;
-      margin-bottom: 50px;
+      margin-top: 5px;
+      /* margin-bottom: 50px; */
       color: var(--text-main);
       font-size: 2.5rem;
       font-weight: 700;
@@ -211,7 +224,7 @@
     }
 
     .games {
-      padding: 60px 20px;
+      padding: 20px 20px 60px;
       max-width: 1200px;
       margin: 0 auto;
     }
@@ -337,12 +350,6 @@
       box-shadow: 0 4px 15px rgba(255, 167, 45, 0.3);
     }
 
-    .hero .logo img,
-    .hero p,
-    .badge-2017 {
-      animation-fill-mode: forwards;
-    }
-
     footer {
       text-align: center;
       padding: 30px 20px;
@@ -413,13 +420,12 @@
       <img src="img/portfolioIcon/raadgames.png" alt="Raad Games Logo">
     </div>
     <p>We craft high quality, thrilling mobile gaming experiences.</p>
-    <div class="badge-2017">Since 2017</div>
+    <div>Since 2017</div>
   </section>
 
   <section class="games" id="games">
     <h2 class="section-title">Our <span>Games</span></h2>
     <div class="games-grid">
-
       <div class="game">
         <img src="img/portfolio/DriftMAX.png" alt="Drift Max - Realistic" class="game-icon">
         <h3>Drift Max - Realistic</h3>
@@ -501,27 +507,6 @@
     <p>Raad Games is dedicated to creating innovative and engaging mobile games that players love. From thrilling car
       racing to immersive adventures, we aim to deliver the best gaming experiences on the go.</p>
     <a href="mailto:support@raadgames.com" class="contact-email">support@raadgames.com</a>
-  </section>
-
-
-  <section id="about">
-    <div class="about-container">
-      <h2 class="section-title">Meet <span>Raad</span></h2>
-      <div class="about-content">
-        <p>
-          My journey started in <strong>2017</strong> as a passion project driven by a love for immersive mobile gaming.
-          As a <strong>solo developer</strong>, I handle everything from design to code,
-          ensuring every game has a unique heart and high quality polish.
-        </p>
-        <p>
-          Raad Games is more than just a studio it's a commitment to creating high quality,
-          thrilling experiences that stay with you. Thank you for being part of this journey!
-        </p>
-        <div class="about-footer">
-          <a href="mailto:admin@raadgames.com" class="contact-email">Connect with Me</a>
-        </div>
-      </div>
-    </div>
   </section>
 
   <footer>
