@@ -481,8 +481,11 @@
 
   <script>
     window.addEventListener("load", function() {
-      const loader = document.getElementById("preloader");
-      loader.classList.add("loader-hidden");
+     
+      setTimeout(function() {
+        const loader = document.getElementById("preloader");
+        loader.classList.add("loader-hidden");
+      }, 1500); // Change 1500 to 2000 for 2 seconds, 3000 for 3 seconds, etc.
     });
   </script>
 
