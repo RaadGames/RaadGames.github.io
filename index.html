@@ -99,6 +99,8 @@
       background-repeat: no-repeat;
       background-size: cover;
       z-index: -1;
+      transform: translateZ(0);
+      backface-visibility: hidden;
     }
 
     header {
@@ -121,6 +123,8 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
     }
 
     header .logo img {
@@ -168,6 +172,13 @@
       padding: 180px 20px 0px;
       max-width: 800px;
       margin: 0 auto;
+      min-height: 300px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 400px;
+      overflow: visible;
     }
 
     .hero .logo img {
@@ -326,6 +337,12 @@
       box-shadow: 0 4px 15px rgba(255, 167, 45, 0.3);
     }
 
+    .hero .logo img,
+    .hero p,
+    .badge-2017 {
+      animation-fill-mode: forwards;
+    }
+
     footer {
       text-align: center;
       padding: 30px 20px;
@@ -349,7 +366,7 @@
     @keyframes fadeInUp {
       from {
         opacity: 0;
-        transform: translateY(30px);
+        transform: translateY(20px);
       }
 
       to {
@@ -396,7 +413,7 @@
       <img src="img/portfolioIcon/raadgames.png" alt="Raad Games Logo">
     </div>
     <p>We craft high quality, thrilling mobile gaming experiences.</p>
-    <div class="badge-2017">Since  2017</div>
+    <div class="badge-2017">Since 2017</div>
   </section>
 
   <section class="games" id="games">
