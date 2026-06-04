@@ -8,18 +8,18 @@
     <meta name="description" content="تحدي التخمين قم بتنزيلها الآن من جوجل بلاي وابل ستور.">
     <meta name="keywords" content="تحدي التخمين, لعبة رمضان, لعبة اسئلة, لعبة موبايل">
     <meta name="author" content="RAAD GAMES">
-    
+
     <meta property="og:title" content="تحدي التخمين - السهره معنا احلا ">
     <meta property="og:description" content="قم بتنزيلها الآن من جوجل بلاي وابل ستور.">
     <meta property="og:image" content="icon.png">
     <meta property="og:url" content="https://raadgames.com/share-games/gc/">
-    
+
     <link rel="icon" type="image/png" href="favicon.png">
-    
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
-    
+
     <style>
         /* Shared CSS Variables */
         :root {
@@ -48,9 +48,17 @@
         }
 
         @keyframes gradientBG {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
         }
 
         /* Glassmorphism Container */
@@ -65,7 +73,7 @@
             box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
             backdrop-filter: blur(15px);
             -webkit-backdrop-filter: blur(15px);
-            
+
             /* Entrance Animation */
             animation: fadeInUp 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
             opacity: 0;
@@ -92,7 +100,7 @@
             margin-top: 0;
             margin-bottom: 25px;
             font-weight: 900;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
         }
 
         /* App Store Buttons */
@@ -113,7 +121,8 @@
             background: #ffffff;
             color: var(--theme-color);
             text-decoration: none;
-            border-radius: 50px; /* Pill shape for premium feel */
+            border-radius: 50px;
+            /* Pill shape for premium feel */
             font-size: 18px;
             font-weight: 700;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
@@ -123,7 +132,8 @@
         .store-buttons a img {
             width: 24px;
             height: 24px;
-            margin-left: 12px; /* Changed to left for RTL */
+            margin-left: 12px;
+            /* Changed to left for RTL */
             background-color: var(--theme-color);
             border-radius: 50%;
             padding: 5px;
@@ -139,7 +149,8 @@
 
         .store-buttons a:hover img {
             background-color: #ffffff;
-            filter: brightness(0) saturate(100%) invert(21%) sepia(85%) saturate(3015%) hue-rotate(258deg) brightness(85%) contrast(106%); /* Turns the icon inside the circle purple */
+            filter: brightness(0) saturate(100%) invert(21%) sepia(85%) saturate(3015%) hue-rotate(258deg) brightness(85%) contrast(106%);
+            /* Turns the icon inside the circle purple */
         }
 
         /* Banner Preview */
@@ -157,6 +168,29 @@
             transform: scale(1.03);
         }
 
+        /* General Styles */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: var(--text-main);
+            line-height: 1.6;
+            background-color: var(--bg-dark);
+            /* UPDATED: Default cursor is a white ring with a soft blur/glow */
+            cursor: url('data:image/svg+xml;utf8,<svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><defs><filter id="glow"><feGaussianBlur stdDeviation="2"/></filter></defs><circle cx="16" cy="16" r="6" fill="none" stroke="%23ffffff" stroke-width="3" filter="url(%23glow)" opacity="0.8"/><circle cx="16" cy="16" r="6" fill="none" stroke="%23ffffff" stroke-width="1.5"/></svg>') 16 16, auto;
+        }
+
+        /* UPDATED: Hover cursor is a filled orange circle with a blurred orange glow */
+        a,
+        button,
+        .game {
+            cursor: url('data:image/svg+xml;utf8,<svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><defs><filter id="glow"><feGaussianBlur stdDeviation="2.5"/></filter></defs><circle cx="16" cy="16" r="7" fill="%23ffa72d" filter="url(%23glow)" opacity="0.7"/><circle cx="16" cy="16" r="6" fill="%23ffa72d"/></svg>') 16 16, pointer;
+        }
+
         /* Animations */
         @keyframes fadeInUp {
             to {
@@ -170,9 +204,11 @@
             .container {
                 padding: 30px 20px;
             }
+
             h1 {
                 font-size: 24px;
             }
+
             .store-buttons a {
                 font-size: 16px;
                 padding: 12px 20px;
@@ -193,7 +229,8 @@
             <a href="https://play.google.com/store/apps/details?id=com.raadgames.guessingchallenge">
                 <img src="icons/android.png" alt="شعار جوجل بلاي"> احصل عليه من جوجل بلاي
             </a>
-            <a href="https://apps.apple.com/ar/app/%D8%AA%D8%AD%D8%AF%D9%8A-%D8%A7%D9%84%D8%AA%D8%AE%D9%85%D9%8A%D9%86/id6742692615?platform=iphone">
+            <a
+                href="https://apps.apple.com/ar/app/%D8%AA%D8%AD%D8%AF%D9%8A-%D8%A7%D9%84%D8%AA%D8%AE%D9%85%D9%8A%D9%86/id6742692615?platform=iphone">
                 <img src="icons/ios.png" alt="شعار ابل ستور"> حمله من آبل ستور
             </a>
         </div>
@@ -202,7 +239,7 @@
             <img src="banner.png" alt="عرض لعبة تحدي التخمين" loading="lazy">
         </div>
     </div>
-    
+
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
