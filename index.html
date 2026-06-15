@@ -5,7 +5,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Raad Games | Independent Game Developer Since 2017</title>
-  <meta name="description" content="Raad Games is an independent game developer founded in 2017, crafting racing, strategy, trivia and party games for iOS and Android.">
+  <meta name="description"
+    content="Raad Games is an independent game developer founded in 2017, crafting racing, strategy, trivia and party games for iOS and Android.">
   <meta name="theme-color" content="#0b0d12">
   <link rel="canonical" href="https://raadgames.com/">
 
@@ -24,7 +25,9 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+    rel="stylesheet">
 
   <style>
     /* ============ Design tokens ============ */
@@ -79,7 +82,9 @@
     }
 
     @keyframes spin {
-      to { transform: rotate(360deg); }
+      to {
+        transform: rotate(360deg);
+      }
     }
 
     .loader-hidden {
@@ -99,6 +104,10 @@
       color: var(--text);
       line-height: 1.6;
       background-color: var(--bg);
+
+      -webkit-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
     }
 
     body::before {
@@ -623,6 +632,10 @@
       border: 2px solid var(--primary);
       border-radius: 50px;
       transition: all 0.3s ease;
+
+      -webkit-user-select: text;
+      -ms-user-select: text;
+      user-select: text;
     }
 
     .contact-email:hover {
@@ -707,6 +720,7 @@
         opacity: 0;
         transform: translateY(20px);
       }
+
       to {
         opacity: 1;
         transform: translateY(0);
@@ -714,11 +728,17 @@
     }
 
     @media (prefers-reduced-motion: reduce) {
-      .eyebrow, .hero .logo img, .hero-tagline, .hero-actions, .hero-stats {
+
+      .eyebrow,
+      .hero .logo img,
+      .hero-tagline,
+      .hero-actions,
+      .hero-stats {
         animation: none !important;
         opacity: 1 !important;
         transform: none !important;
       }
+
       .game {
         opacity: 1 !important;
         transform: none !important;
@@ -877,8 +897,8 @@
 
       <div class="game">
         <span class="game-tag">Arcade</span>
-        <img src="img/portfolio/Space Debris Pro.png" alt="Space Debris Pro" class="game-icon" width="130"
-          height="130" loading="lazy">
+        <img src="img/portfolio/Space Debris Pro.png" alt="Space Debris Pro" class="game-icon" width="130" height="130"
+          loading="lazy">
         <h3>Space Debris Pro</h3>
         <div class="store-buttons">
           <a href="https://apps.apple.com/us/app/space-debris-pro/id1448206810">
@@ -892,33 +912,38 @@
 
   <section id="about">
     <h2 class="section-title">About <span>Me</span></h2>
-    <p class="section-intro">Hi, I'm Ra'ad, the solo developer behind Raad Games. I'm passionate about creating innovative and engaging mobile games that players love. From thrilling racing games to immersive adventures, I strive to deliver memorable gaming experiences on the go.</p>
+    <p class="section-intro">Hi, I'm Ra'ad, the solo developer behind Raad Games. I'm passionate about creating
+      innovative and engaging mobile games that players love. From thrilling racing games to immersive adventures, I
+      strive to deliver memorable gaming experiences on the go.</p>
 
     <div class="pillars">
       <div class="pillar">
-        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <path d="M10 6v36"/>
-          <path d="M10 6h22l-4 6 4 6H10"/>
+        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+          stroke-linejoin="round" aria-hidden="true">
+          <path d="M10 6v36" />
+          <path d="M10 6h22l-4 6 4 6H10" />
         </svg>
         <h3>Racing &amp; Action</h3>
         <p>Realistic drift physics and fast-paced arcade action, tuned for quick sessions and serious skill.</p>
       </div>
       <div class="pillar">
-        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true">
-          <rect x="8" y="8" width="32" height="32" rx="6"/>
-          <circle cx="18" cy="18" r="1.8" fill="currentColor" stroke="none"/>
-          <circle cx="30" cy="18" r="1.8" fill="currentColor" stroke="none"/>
-          <circle cx="24" cy="24" r="1.8" fill="currentColor" stroke="none"/>
-          <circle cx="18" cy="30" r="1.8" fill="currentColor" stroke="none"/>
-          <circle cx="30" cy="30" r="1.8" fill="currentColor" stroke="none"/>
+        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"
+          stroke-linecap="round" aria-hidden="true">
+          <rect x="8" y="8" width="32" height="32" rx="6" />
+          <circle cx="18" cy="18" r="1.8" fill="currentColor" stroke="none" />
+          <circle cx="30" cy="18" r="1.8" fill="currentColor" stroke="none" />
+          <circle cx="24" cy="24" r="1.8" fill="currentColor" stroke="none" />
+          <circle cx="18" cy="30" r="1.8" fill="currentColor" stroke="none" />
+          <circle cx="30" cy="30" r="1.8" fill="currentColor" stroke="none" />
         </svg>
         <h3>Party &amp; Trivia</h3>
         <p>Pick-up-and-play party games and trivia rooted in shared culture, made for friends and family.</p>
       </div>
       <div class="pillar">
-        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true">
-          <path d="M24 6l14 6v10c0 10-6 16-14 20-8-4-14-10-14-20V12z"/>
-          <path d="M24 18v8M20 26h8"/>
+        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"
+          stroke-linecap="round" aria-hidden="true">
+          <path d="M24 6l14 6v10c0 10-6 16-14 20-8-4-14-10-14-20V12z" />
+          <path d="M24 18v8M20 26h8" />
         </svg>
         <h3>Strategy &amp; Simulation</h3>
         <p>Tactical battle simulators and systems-driven games for players who like to plan ahead.</p>
