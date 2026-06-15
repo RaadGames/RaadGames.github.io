@@ -4,16 +4,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Privacy Policy - Raad Games</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
     <style>
         /* Shared CSS Variables from your main site */
         :root {
             --primary-color: #ffa72d;
+            --primary-hover: #ff8c00;
             --bg-dark: #121418;
             --card-bg: rgba(255, 255, 255, 0.05);
             --card-border: rgba(255, 255, 255, 0.1);
@@ -27,17 +29,19 @@
             margin: 0;
             padding: 0;
             background-color: var(--bg-dark);
-            /* Subtle dark gradient background */
-            background-image: radial-gradient(circle at top center, rgba(30, 34, 40, 1) 0%, rgba(18, 20, 24, 1) 100%);
+            background-image: radial-gradient(circle at top right, rgba(30, 34, 40, 1) 0%, rgba(18, 20, 24, 1) 100%);
             color: var(--text-muted);
             min-height: 100vh;
+            display: flex;
+            flex-direction: column;
         }
 
-        /* Navigation Header */
-        .header {
+        .top-nav {
             max-width: 800px;
             margin: 0 auto;
+            width: 100%;
             padding: 30px 20px 0;
+            box-sizing: border-box;
         }
 
         .back-btn {
@@ -125,7 +129,6 @@
 
         a:hover {
             color: #fff;
-            text-decoration: underline;
         }
 
         .update {
@@ -142,22 +145,52 @@
             scroll-behavior: smooth;
         }
 
-        body {
-            font-family: 'Poppins', sans-serif;
-            margin: 0;
-            padding: 0;
-            color: var(--text-main);
-            line-height: 1.6;
-            background-color: var(--bg-dark);
-            /* UPDATED: Default cursor is a white ring with a soft blur/glow */
-            cursor: url('data:image/svg+xml;utf8,<svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><defs><filter id="glow"><feGaussianBlur stdDeviation="2"/></filter></defs><circle cx="16" cy="16" r="6" fill="none" stroke="%23ffffff" stroke-width="3" filter="url(%23glow)" opacity="0.8"/><circle cx="16" cy="16" r="6" fill="none" stroke="%23ffffff" stroke-width="1.5"/></svg>') 16 16, auto;
+        /* ============ Custom particle cursor ============ */
+        body.has-custom-cursor,
+        body.has-custom-cursor a,
+        body.has-custom-cursor button,
+        body.has-custom-cursor .game {
+            cursor: none;
         }
 
-        /* UPDATED: Hover cursor is a filled orange circle with a blurred orange glow */
-        a,
-        button,
-        .game {
-            cursor: url('data:image/svg+xml;utf8,<svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><defs><filter id="glow"><feGaussianBlur stdDeviation="2.5"/></filter></defs><circle cx="16" cy="16" r="7" fill="%23ffa72d" filter="url(%23glow)" opacity="0.7"/><circle cx="16" cy="16" r="6" fill="%23ffa72d"/></svg>') 16 16, pointer;
+        #cursor-trail {
+            position: fixed;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 9998;
+        }
+
+         /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .cursor-dot {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--primary-color);
+            box-shadow: 0 0 10px 2px rgba(255, 167, 45, 0.55);
+            pointer-events: none;
+            z-index: 9999;
+            transform: translate(-50%, -50%);
+            transition: width 0.2s ease, height 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+            will-change: transform;
+        }
+
+        .cursor-dot.is-active {
+            width: 32px;
+            height: 32px;
+            background: transparent;
+            border: 1.5px solid var(--primary-color);
+            box-shadow: 0 0 16px 2px rgba(255, 167, 45, 0.45);
         }
 
         /* Mobile Responsiveness */
@@ -176,7 +209,7 @@
 
 <body>
 
-    <div class="header">
+    <div class="top-nav">
         <a href="https://raadgames.com/" class="back-btn">&larr; Back to Home</a>
     </div>
 
@@ -216,6 +249,92 @@
                 privacy policy, those changes will be posted here.</p>
         </div>
     </div>
+
+    <footer>
+        <p>&copy; 2026 Raad Games. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Particle cursor trail (desktop, fine pointer, motion allowed)
+        (function () {
+            const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+            const finePointer = window.matchMedia("(pointer: fine)").matches;
+            if (reduceMotion || !finePointer) return;
+
+            document.body.classList.add("has-custom-cursor");
+
+            const canvas = document.createElement("canvas");
+            canvas.id = "cursor-trail";
+            document.body.appendChild(canvas);
+            const ctx = canvas.getContext("2d");
+
+            const dot = document.createElement("div");
+            dot.className = "cursor-dot";
+            document.body.appendChild(dot);
+
+            function resize() {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+            }
+            resize();
+            window.addEventListener("resize", resize);
+
+            let particles = [];
+            let lastX = -100, lastY = -100;
+
+            window.addEventListener("mousemove", (e) => {
+                dot.style.transform = `translate(${e.clientX}px, ${e.clientY}px) translate(-50%, -50%)`;
+
+                const dx = e.clientX - lastX;
+                const dy = e.clientY - lastY;
+                const dist = Math.hypot(dx, dy);
+                const count = Math.min(3, Math.max(1, Math.round(dist / 10)));
+
+                for (let i = 0; i < count; i++) {
+                    particles.push({
+                        x: e.clientX + (Math.random() - 0.5) * 4,
+                        y: e.clientY + (Math.random() - 0.5) * 4,
+                        size: Math.random() * 2.5 + 1,
+                        alpha: 0.85,
+                        vx: (Math.random() - 0.5) * 0.6,
+                        vy: (Math.random() - 0.5) * 0.6 - 0.25,
+                    });
+                }
+                if (particles.length > 90) particles.splice(0, particles.length - 90);
+                lastX = e.clientX;
+                lastY = e.clientY;
+            });
+
+            document.addEventListener("mouseover", (e) => {
+                if (e.target.closest("a, button, .game")) dot.classList.add("is-active");
+            });
+            document.addEventListener("mouseout", (e) => {
+                if (e.target.closest("a, button, .game")) dot.classList.remove("is-active");
+            });
+            window.addEventListener("mouseleave", () => {
+                dot.style.opacity = "0";
+            });
+            window.addEventListener("mouseenter", () => {
+                dot.style.opacity = "1";
+            });
+
+            function animate() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                particles.forEach((p) => {
+                    p.x += p.vx;
+                    p.y += p.vy;
+                    p.alpha -= 0.025;
+                    ctx.beginPath();
+                    ctx.arc(p.x, p.y, Math.max(p.size, 0), 0, Math.PI * 2);
+                    ctx.fillStyle = `rgba(255, 167, 45, ${Math.max(p.alpha, 0)})`;
+                    ctx.fill();
+                });
+                particles = particles.filter((p) => p.alpha > 0);
+                requestAnimationFrame(animate);
+            }
+            animate();
+        })();
+    </script>
 
 </body>
 

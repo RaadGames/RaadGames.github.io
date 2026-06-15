@@ -4,37 +4,59 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Raad Games - Mobile Game Developer</title>
-  <meta property="og:title" content="Raad Games - Mobile Game Developer">
+  <title>Raad Games | Independent Mobile Game Studio Since 2017</title>
+  <meta name="description" content="Raad Games is an independent mobile game studio founded in 2017, crafting racing, strategy, trivia and party games for iOS and Android.">
+  <meta name="theme-color" content="#0b0d12">
+  <link rel="canonical" href="https://raadgames.com/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Raad Games | Independent Mobile Game Studio">
   <meta property="og:description" content="Raad Games is a mobile game developer focusing on high-quality games.">
   <meta property="og:image" content="https://raadgames.com/raadgames_white.png">
   <meta property="og:url" content="https://raadgames.com">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Raad Games | Independent Mobile Game Studio">
+  <meta name="twitter:description" content="Raad Games is a mobile game developer focusing on high-quality games.">
+  <meta name="twitter:image" content="https://raadgames.com/raadgames_white.png">
+
   <link rel="icon" type="image/png" href="img/favicon.png">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
 
   <style>
-    /* CSS Variables for easy theme management */
+    /* ============ Design tokens ============ */
     :root {
-      --primary-color: #ffa72d;
-      --primary-hover: #ff8c00;
-      --bg-dark: #121418;
-      --card-bg: rgba(255, 255, 255, 0.05);
-      --card-border: rgba(255, 255, 255, 0.1);
-      --text-main: #ffffff;
-      --text-muted: #b0b3b8;
+      --bg: #0b0d12;
+      --bg-elevated: rgba(255, 255, 255, 0.035);
+      --border: rgba(255, 255, 255, 0.08);
+      --primary: #ffa72d;
+      --primary-deep: #ff8c00;
+      --primary-soft: rgba(255, 167, 45, 0.12);
+      --text: #f5f6f7;
+      --text-muted: #9aa0aa;
+      --text-faint: #6e747c;
+      --font-display: 'Space Grotesk', sans-serif;
+      --font-body: 'Poppins', sans-serif;
+      --radius-lg: 20px;
+      --radius-md: 14px;
+      --max-width: 1180px;
     }
 
-    /* PRELOADER STYLES */
+    * {
+      box-sizing: border-box;
+    }
+
+    /* ============ Preloader ============ */
     #preloader {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      background-color: var(--bg-dark);
+      background-color: var(--bg);
       display: flex;
       justify-content: center;
       align-items: center;
@@ -48,22 +70,16 @@
     }
 
     .loader {
-      width: 50px;
-      height: 50px;
-      border: 5px solid rgba(255, 167, 45, 0.1);
-      border-top: 5px solid var(--primary-color);
+      width: 46px;
+      height: 46px;
+      border: 4px solid rgba(255, 167, 45, 0.12);
+      border-top: 4px solid var(--primary);
       border-radius: 50%;
-      animation: spin 1s linear infinite;
+      animation: spin 0.9s linear infinite;
     }
 
     @keyframes spin {
-      0% {
-        transform: rotate(0deg);
-      }
-
-      100% {
-        transform: rotate(360deg);
-      }
+      to { transform: rotate(360deg); }
     }
 
     .loader-hidden {
@@ -71,18 +87,18 @@
       visibility: hidden;
     }
 
-    /* General Styles */
+    /* ============ Base ============ */
     html {
       scroll-behavior: smooth;
     }
 
     body {
-      font-family: 'Poppins', sans-serif;
+      font-family: var(--font-body);
       margin: 0;
       padding: 0;
-      color: var(--text-main);
+      color: var(--text);
       line-height: 1.6;
-      background-color: var(--bg-dark);
+      background-color: var(--bg);
     }
 
     body::before {
@@ -93,7 +109,7 @@
       width: 100vw;
       height: 100vh;
       background-image:
-        radial-gradient(circle at center, rgba(18, 20, 24, 0.7) 0%, rgba(0, 0, 0, 0.9) 100%),
+        radial-gradient(circle at center, rgba(11, 13, 18, 0.7) 0%, rgba(0, 0, 0, 0.92) 100%),
         url('img/background9.jpg');
       background-position: center center;
       background-repeat: no-repeat;
@@ -103,23 +119,92 @@
       backface-visibility: hidden;
     }
 
+    a {
+      color: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .visually-hidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    a:focus-visible,
+    button:focus-visible {
+      outline: 2px solid var(--primary);
+      outline-offset: 3px;
+      border-radius: 4px;
+    }
+
+    /* ============ Custom particle cursor ============ */
+    body.has-custom-cursor,
+    body.has-custom-cursor a,
+    body.has-custom-cursor button,
+    body.has-custom-cursor .game {
+      cursor: none;
+    }
+
+    #cursor-trail {
+      position: fixed;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      z-index: 9998;
+    }
+
+    .cursor-dot {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--primary);
+      box-shadow: 0 0 10px 2px rgba(255, 167, 45, 0.55);
+      pointer-events: none;
+      z-index: 9999;
+      transform: translate(-50%, -50%);
+      transition: width 0.2s ease, height 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+      will-change: transform;
+    }
+
+    .cursor-dot.is-active {
+      width: 32px;
+      height: 32px;
+      background: transparent;
+      border: 1.5px solid var(--primary);
+      box-shadow: 0 0 16px 2px rgba(255, 167, 45, 0.45);
+    }
+
+    /* ============ Header ============ */
     header {
       position: fixed;
       top: 0;
       width: 100%;
-      background: rgba(20, 20, 20, 0.6);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-      padding: 15px 0;
+      background: rgba(14, 16, 21, 0.65);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+      padding: 14px 0;
       z-index: 1000;
       transition: all 0.3s ease;
     }
 
     .header-container {
-      max-width: 1200px;
+      max-width: var(--max-width);
       margin: 0 auto;
-      padding: 0 20px;
+      padding: 0 24px;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -128,7 +213,7 @@
     }
 
     header .logo img {
-      height: 45px;
+      height: 42px;
       transition: transform 0.3s ease;
     }
 
@@ -137,11 +222,11 @@
     }
 
     header nav a {
-      color: var(--text-main);
+      color: var(--text);
       text-decoration: none;
       margin: 0 15px;
       font-weight: 600;
-      font-size: 0.95rem;
+      font-size: 0.9rem;
       letter-spacing: 0.5px;
       text-transform: uppercase;
       transition: color 0.3s ease;
@@ -155,7 +240,7 @@
       height: 2px;
       bottom: -4px;
       left: 0;
-      background-color: var(--primary-color);
+      background-color: var(--primary);
       transition: width 0.3s ease;
     }
 
@@ -164,35 +249,40 @@
     }
 
     header nav a:hover {
-      color: var(--primary-color);
+      color: var(--primary);
     }
 
+    /* ============ Hero ============ */
     .hero {
       text-align: center;
-      padding: 120px 20px 20px;
-      max-width: 800px;
+      padding: 160px 20px 70px;
+      max-width: 760px;
       margin: 0 auto;
-      min-height: 380px;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       position: relative;
-      overflow: visible;
+    }
+
+    .eyebrow {
+      font-family: var(--font-display);
+      font-size: 0.78rem;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--primary);
+      font-weight: 600;
+      margin: 0 0 22px;
+      animation: fadeInUp 1s ease-out forwards;
     }
 
     .hero .logo img {
       width: 100%;
-      max-width: 400px;
-      /* By setting a height/min-height here, the section 
-     won't collapse if the image fails to load */
-      height: 180px;
+      max-width: 360px;
+      height: 150px;
       object-fit: contain;
-
       animation: fadeInUp 1.2s ease-out forwards;
       filter: drop-shadow(0px 10px 20px rgba(0, 0, 0, 0.5));
-
-      /* Optimizes for scrolling performance */
       will-change: transform, opacity;
     }
 
@@ -201,31 +291,149 @@
       animation-fill-mode: forwards !important;
     }
 
-    .hero p {
-      margin: 15px 0 0 0;
-      font-size: 1.25rem;
-      color: var(--text-muted);
-      font-weight: 300;
-      animation: fadeInUp 1.5s ease-out forwards;
+    .hero-tagline {
+      margin: 22px 0 0 0;
+      font-size: 1.3rem;
+      color: var(--text);
+      font-weight: 500;
+      animation: fadeInUp 1.4s ease-out forwards;
+      max-width: 540px;
     }
 
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+      margin-top: 34px;
+      flex-wrap: wrap;
+      justify-content: center;
+      animation: fadeInUp 1.8s ease-out forwards;
+    }
+
+    .btn-primary,
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 34px;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary), var(--primary-deep));
+      color: #2b1c06;
+      box-shadow: 0 8px 24px rgba(255, 167, 45, 0.25);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 30px rgba(255, 167, 45, 0.35);
+    }
+
+    .btn-secondary {
+      border: 1.5px solid var(--border);
+      color: var(--text);
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+      transform: translateY(-3px);
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 50px;
+      margin-top: 46px;
+      padding-top: 30px;
+      border-top: 1px solid var(--border);
+      flex-wrap: wrap;
+      justify-content: center;
+      width: 100%;
+      animation: fadeInUp 2s ease-out forwards;
+    }
+
+    .hero-stats .stat {
+      text-align: center;
+      min-width: 90px;
+    }
+
+    .hero-stats .stat strong {
+      display: block;
+      font-family: var(--font-display);
+      font-size: 1.9rem;
+      font-weight: 700;
+      color: var(--text);
+      letter-spacing: 0.5px;
+    }
+
+    .hero-stats .stat span {
+      display: block;
+      margin-top: 4px;
+      font-size: 0.72rem;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--text-faint);
+    }
+
+    /* ============ Section titles & signature drift mark ============ */
     .section-title {
       text-align: center;
-      margin-top: 5px;
-      /* margin-bottom: 50px; */
-      color: var(--text-main);
-      font-size: 2.5rem;
+      margin: 0 0 18px;
+      color: var(--text);
+      font-family: var(--font-display);
+      font-size: 2.4rem;
       font-weight: 700;
-      letter-spacing: 1px;
+      letter-spacing: 0.5px;
+      position: relative;
+      padding-bottom: 26px;
     }
 
     .section-title span {
-      color: var(--primary-color);
+      color: var(--primary);
     }
 
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 88px;
+      height: 4px;
+      border-radius: 2px;
+      background: linear-gradient(90deg, transparent, var(--primary), var(--primary-deep));
+    }
+
+    .section-title::before {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 50%;
+      transform: translateX(calc(-50% + 41px));
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--primary-deep);
+      box-shadow: 0 0 10px var(--primary);
+    }
+
+    .section-intro {
+      text-align: center;
+      max-width: 620px;
+      margin: 0 auto 50px;
+      color: var(--text-muted);
+      font-size: 1.05rem;
+    }
+
+    /* ============ Games ============ */
     .games {
-      padding: 20px 20px 60px;
-      max-width: 1200px;
+      padding: 90px 20px 70px;
+      max-width: var(--max-width);
       margin: 0 auto;
     }
 
@@ -237,18 +445,25 @@
     }
 
     .game {
-      background: var(--card-bg);
-      border: 1px solid var(--card-border);
-      border-radius: 20px;
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
       overflow: hidden;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
       text-align: center;
-      padding: 30px 20px;
+      padding: 32px 22px;
       width: 100%;
-      box-sizing: border-box;
       backdrop-filter: blur(5px);
-      transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+      transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease, border-color 0.4s ease;
       will-change: transform;
+      opacity: 0;
+      transform: translateY(24px);
+    }
+
+    .game.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+      transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.6s ease, box-shadow 0.4s ease, border-color 0.4s ease;
     }
 
     .game:hover {
@@ -257,10 +472,24 @@
       border-color: rgba(255, 167, 45, 0.3);
     }
 
+    .game-tag {
+      display: inline-block;
+      font-family: var(--font-display);
+      font-size: 0.7rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: var(--primary);
+      background: var(--primary-soft);
+      padding: 5px 14px;
+      border-radius: 20px;
+      margin-bottom: 18px;
+    }
+
     .game img.game-icon {
-      width: 140px;
-      height: 140px;
-      margin-bottom: 20px;
+      width: 130px;
+      height: 130px;
+      margin: 0 auto 20px;
       border-radius: 22.5%;
       object-fit: cover;
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
@@ -273,8 +502,9 @@
 
     .game h3 {
       margin: 0 0 20px 0;
-      color: var(--text-main);
-      font-size: 1.4rem;
+      color: var(--text);
+      font-family: var(--font-display);
+      font-size: 1.3rem;
       font-weight: 600;
     }
 
@@ -285,133 +515,237 @@
       align-items: center;
     }
 
-    .game a {
+    .game .store-buttons a {
       display: inline-flex;
       align-items: center;
       justify-content: center;
       width: 80%;
       padding: 12px 20px;
-      background: linear-gradient(135deg, var(--primary-color), var(--primary-hover));
-      color: #fff;
+      background: linear-gradient(135deg, var(--primary), var(--primary-deep));
+      color: #2b1c06;
       text-decoration: none;
       border-radius: 50px;
-      font-size: 0.95rem;
+      font-size: 0.92rem;
       font-weight: 600;
       box-shadow: 0 4px 15px rgba(255, 167, 45, 0.3);
       transition: all 0.3s ease;
     }
 
-    .game a img {
+    .game .store-buttons a img {
       width: 20px;
       height: 20px;
       margin-right: 10px;
-      filter: brightness(0) invert(1);
+      filter: brightness(0) saturate(100%);
+      opacity: 0.75;
     }
 
-    .game a:hover {
+    .game .store-buttons a:hover {
       background: linear-gradient(135deg, #fff, #f0f0f0);
-      color: var(--primary-hover);
+      color: var(--primary-deep);
       box-shadow: 0 6px 20px rgba(255, 255, 255, 0.3);
     }
 
-    .game a:hover img {
-      filter: none;
-    }
-
+    /* ============ About ============ */
     #about {
-      padding: 80px 20px;
+      padding: 90px 20px 100px;
       text-align: center;
-      max-width: 800px;
+      max-width: 1000px;
       margin: 0 auto;
-      border-top: 1px solid var(--card-border);
+      border-top: 1px solid var(--border);
     }
 
-    #about p {
-      font-size: 1.15rem;
+    #about .section-intro {
+      max-width: 700px;
+      font-size: 1.1rem;
+      line-height: 1.85;
+    }
+
+    .pillars {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 26px;
+      margin: 10px 0 60px;
+    }
+
+    .pillar {
+      text-align: center;
+      padding: 34px 24px;
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      transition: border-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .pillar:hover {
+      border-color: rgba(255, 167, 45, 0.3);
+      transform: translateY(-6px);
+    }
+
+    .pillar svg {
+      width: 38px;
+      height: 38px;
+      color: var(--primary);
+      margin-bottom: 18px;
+    }
+
+    .pillar h3 {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      margin: 0 0 10px;
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .pillar p {
       color: var(--text-muted);
-      line-height: 1.8;
-      margin-bottom: 30px;
+      font-size: 0.92rem;
+      margin: 0;
+      line-height: 1.7;
+    }
+
+    .contact-label {
+      font-family: var(--font-display);
+      font-size: 0.78rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--text-faint);
+      margin: 0 0 16px;
     }
 
     .contact-email {
       display: inline-block;
-      font-size: 1.1rem;
-      color: var(--primary-color);
+      font-size: 1.05rem;
+      color: var(--primary);
       text-decoration: none;
       font-weight: 600;
-      padding: 10px 25px;
-      border: 2px solid var(--primary-color);
+      padding: 12px 32px;
+      border: 2px solid var(--primary);
       border-radius: 50px;
       transition: all 0.3s ease;
     }
 
     .contact-email:hover {
-      background-color: var(--primary-color);
-      color: #fff;
+      background-color: var(--primary);
+      color: #1a1306;
       box-shadow: 0 4px 15px rgba(255, 167, 45, 0.3);
     }
 
+    /* ============ Footer ============ */
     footer {
-      text-align: center;
-      padding: 30px 20px;
-      background: rgba(10, 10, 10, 0.8);
-      border-top: 1px solid var(--card-border);
+      padding: 60px 20px 0;
+      background: rgba(8, 9, 12, 0.85);
+      border-top: 1px solid var(--border);
       color: var(--text-muted);
-      font-size: 0.9rem;
     }
 
-    footer a {
-      color: var(--primary-color);
+    .footer-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 40px;
+      align-items: flex-start;
+      padding-bottom: 40px;
+    }
+
+    .footer-brand img {
+      height: 34px;
+      margin-bottom: 14px;
+    }
+
+    .footer-brand p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      max-width: 280px;
+      margin: 0;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 28px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .footer-links a:hover {
+      color: var(--primary);
+    }
+
+    .footer-bottom {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 24px 0 30px;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      color: var(--text-faint);
+      font-size: 0.85rem;
+    }
+
+    .footer-bottom a {
+      color: var(--primary);
       text-decoration: none;
       font-weight: 600;
       transition: color 0.3s ease;
     }
 
-    footer a:hover {
+    .footer-bottom a:hover {
       color: #fff;
     }
 
-    /* General Styles */
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: 'Poppins', sans-serif;
-      margin: 0;
-      padding: 0;
-      color: var(--text-main);
-      line-height: 1.6;
-      background-color: var(--bg-dark);
-      /* UPDATED: Default cursor is a white ring with a soft blur/glow */
-      cursor: url('data:image/svg+xml;utf8,<svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><defs><filter id="glow"><feGaussianBlur stdDeviation="2"/></filter></defs><circle cx="16" cy="16" r="6" fill="none" stroke="%23ffffff" stroke-width="3" filter="url(%23glow)" opacity="0.8"/><circle cx="16" cy="16" r="6" fill="none" stroke="%23ffffff" stroke-width="1.5"/></svg>') 16 16, auto;
-    }
-
-    /* UPDATED: Hover cursor is a filled orange circle with a blurred orange glow */
-    a, button, .game {
-      cursor: url('data:image/svg+xml;utf8,<svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><defs><filter id="glow"><feGaussianBlur stdDeviation="2.5"/></filter></defs><circle cx="16" cy="16" r="7" fill="%23ffa72d" filter="url(%23glow)" opacity="0.7"/><circle cx="16" cy="16" r="6" fill="%23ffa72d"/></svg>') 16 16, pointer;
-    }
-
+    /* ============ Motion ============ */
     @keyframes fadeInUp {
       from {
         opacity: 0;
         transform: translateY(20px);
       }
-
       to {
         opacity: 1;
         transform: translateY(0);
       }
     }
 
+    @media (prefers-reduced-motion: reduce) {
+      .eyebrow, .hero .logo img, .hero-tagline, .hero-actions, .hero-stats {
+        animation: none !important;
+        opacity: 1 !important;
+        transform: none !important;
+      }
+      .game {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+      }
+    }
+
+    /* ============ Responsive ============ */
     @media (max-width: 768px) {
       .header-container {
         flex-direction: column;
-        gap: 15px;
+        gap: 12px;
       }
 
       .hero {
-        padding-top: 150px;
+        padding: 130px 20px 60px;
+      }
+
+      .section-title {
+        font-size: 1.9rem;
+      }
+
+      .hero-stats {
+        gap: 32px;
+      }
+
+      .footer-inner {
+        flex-direction: column;
       }
     }
   </style>
@@ -428,7 +762,7 @@
       <div class="logo">
         <img src="img/portfolioIcon/raadgames_white.png" alt="Raad Games Logo">
       </div>
-      <nav>
+      <nav aria-label="Main navigation">
         <a href="#home">Home</a>
         <a href="#games">Games</a>
         <a href="#about">About</a>
@@ -438,11 +772,32 @@
   </header>
 
   <section class="hero" id="home">
+    <h1 class="visually-hidden">Raad Games — Independent Mobile Game Studio</h1>
+    <p class="eyebrow">Independent Mobile Game Studio</p>
     <div class="logo">
       <img src="img/portfolioIcon/raadgames.png" alt="Raad Games Logo">
     </div>
-    <p>We craft high quality, thrilling mobile gaming experiences.</p>
-    <div>Since 2017</div>
+    <p class="hero-tagline">We craft high-quality, thrilling mobile gaming experiences.</p>
+
+    <div class="hero-actions">
+      <a href="#games" class="btn-primary">Explore Our Games</a>
+      <a href="#about" class="btn-secondary">About the Studio</a>
+    </div>
+
+    <div class="hero-stats">
+      <div class="stat">
+        <strong>2017</strong>
+        <span>Founded</span>
+      </div>
+      <div class="stat">
+        <strong>6</strong>
+        <span>Games Shipped</span>
+      </div>
+      <div class="stat">
+        <strong>iOS &amp; Android</strong>
+        <span>Platforms</span>
+      </div>
+    </div>
   </section>
 
   <section class="games" id="games">
@@ -450,7 +805,9 @@
     <div class="games-grid">
 
       <div class="game">
-        <img src="img/portfolio/DriftChallenge_Realistic.png" alt="Drift Challenge - Realistic" class="game-icon">
+        <span class="game-tag">Racing</span>
+        <img src="img/portfolio/DriftChallenge_Realistic.png" alt="Drift Challenge - Realistic" class="game-icon"
+          width="130" height="130" loading="lazy">
         <h3>Drift Challenge - Realistic</h3>
         <div class="store-buttons">
           <a href="https://play.google.com/store/apps/details?id=com.raadgames.DriftMax">
@@ -463,8 +820,9 @@
       </div>
 
       <div class="game">
-        <img src="img/portfolio/DRH.png" alt="درباوية" class="game-icon">
-        <h3>درباوية</h3>
+        <span class="game-tag">Party Game</span>
+        <img src="img/portfolio/DRH.png" alt="درباوية" class="game-icon" width="130" height="130" loading="lazy">
+        <h3 dir="auto">درباوية</h3>
         <div class="store-buttons">
           <a href="https://play.google.com/store/apps/details?id=com.raadgames.drbwaeh">
             <img src="img/icons/android.png" alt="Android Logo"> Google Play
@@ -476,8 +834,9 @@
       </div>
 
       <div class="game">
-        <img src="img/portfolio/GC.png" alt="تحدي التخمين" class="game-icon">
-        <h3>تحدي التخمين</h3>
+        <span class="game-tag">Trivia</span>
+        <img src="img/portfolio/GC.png" alt="تحدي التخمين" class="game-icon" width="130" height="130" loading="lazy">
+        <h3 dir="auto">تحدي التخمين</h3>
         <div class="store-buttons">
           <a href="https://play.google.com/store/apps/details?id=com.raadgames.guessingchallenge">
             <img src="img/icons/android.png" alt="Android Logo"> Google Play
@@ -490,7 +849,8 @@
       </div>
 
       <div class="game">
-        <img src="img/portfolio/KOH.png" alt="KOH" class="game-icon">
+        <span class="game-tag">Party Game</span>
+        <img src="img/portfolio/KOH.png" alt="KOH" class="game-icon" width="130" height="130" loading="lazy">
         <h3>KOH</h3>
         <div class="store-buttons">
           <a href="https://play.google.com/store/apps/details?id=king.raadgames">
@@ -503,7 +863,9 @@
       </div>
 
       <div class="game">
-        <img src="img/portfolio/RTS PRO - Battle Simulator.png" alt="RTS PRO - Battle Simulator" class="game-icon">
+        <span class="game-tag">Strategy</span>
+        <img src="img/portfolio/RTS PRO - Battle Simulator.png" alt="RTS PRO - Battle Simulator" class="game-icon"
+          width="130" height="130" loading="lazy">
         <h3>RTS PRO</h3>
         <div class="store-buttons">
           <a href="https://apps.apple.com/us/app/rts-pro-battle-simulator/id1510833981">
@@ -513,7 +875,9 @@
       </div>
 
       <div class="game">
-        <img src="img/portfolio/Space Debris Pro.png" alt="Space Debris Pro" class="game-icon">
+        <span class="game-tag">Arcade</span>
+        <img src="img/portfolio/Space Debris Pro.png" alt="Space Debris Pro" class="game-icon" width="130"
+          height="130" loading="lazy">
         <h3>Space Debris Pro</h3>
         <div class="store-buttons">
           <a href="https://apps.apple.com/us/app/space-debris-pro/id1448206810">
@@ -521,30 +885,174 @@
           </a>
         </div>
       </div>
-      
+
     </div>
   </section>
 
   <section id="about">
     <h2 class="section-title">About <span>Us</span></h2>
-    <p>Raad Games is dedicated to creating innovative and engaging mobile games that players love. From thrilling car
-      racing to immersive adventures, we aim to deliver the best gaming experiences on the go.</p>
+    <p class="section-intro">Raad Games is dedicated to creating innovative and engaging mobile games that players
+      love. From thrilling car racing to immersive adventures, we aim to deliver the best gaming experiences on the
+      go.</p>
+
+    <div class="pillars">
+      <div class="pillar">
+        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M10 6v36"/>
+          <path d="M10 6h22l-4 6 4 6H10"/>
+        </svg>
+        <h3>Racing &amp; Action</h3>
+        <p>Realistic drift physics and fast-paced arcade action, tuned for quick sessions and serious skill.</p>
+      </div>
+      <div class="pillar">
+        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true">
+          <rect x="8" y="8" width="32" height="32" rx="6"/>
+          <circle cx="18" cy="18" r="1.8" fill="currentColor" stroke="none"/>
+          <circle cx="30" cy="18" r="1.8" fill="currentColor" stroke="none"/>
+          <circle cx="24" cy="24" r="1.8" fill="currentColor" stroke="none"/>
+          <circle cx="18" cy="30" r="1.8" fill="currentColor" stroke="none"/>
+          <circle cx="30" cy="30" r="1.8" fill="currentColor" stroke="none"/>
+        </svg>
+        <h3>Party &amp; Trivia</h3>
+        <p>Pick-up-and-play party games and trivia rooted in shared culture, made for friends and family.</p>
+      </div>
+      <div class="pillar">
+        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true">
+          <path d="M24 6l14 6v10c0 10-6 16-14 20-8-4-14-10-14-20V12z"/>
+          <path d="M24 18v8M20 26h8"/>
+        </svg>
+        <h3>Strategy &amp; Simulation</h3>
+        <p>Tactical battle simulators and systems-driven games for players who like to plan ahead.</p>
+      </div>
+    </div>
+
+    <p class="contact-label">Have a question or a partnership idea?</p>
     <a href="mailto:support@raadgames.com" class="contact-email">support@raadgames.com</a>
   </section>
 
   <footer>
-    <p>&copy; 2026 Raad Games. All Rights Reserved. | <a href="support">Support Center</a> | <a
-        href="privacy-policy">Privacy Policy</a></p>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <img src="img/portfolioIcon/raadgames_white.png" alt="Raad Games">
+        <p>Independent mobile game studio crafting racing, strategy, trivia and party games since 2017.</p>
+      </div>
+      <nav class="footer-links" aria-label="Footer navigation">
+        <a href="#home">Home</a>
+        <a href="#games">Games</a>
+        <a href="#about">About</a>
+        <a href="support">Support</a>
+        <a href="privacy-policy">Privacy Policy</a>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2026 Raad Games. All Rights Reserved. | <a href="support">Support Center</a> | <a
+        href="privacy-policy">Privacy Policy</a>
+    </div>
   </footer>
 
   <script>
     window.addEventListener("load", function () {
-
       setTimeout(function () {
         const loader = document.getElementById("preloader");
         loader.classList.add("loader-hidden");
-      }, 1500); // Change 1500 to 2000 for 2 seconds, 3000 for 3 seconds, etc.
+      }, 1200);
     });
+
+    // Scroll-reveal for game cards
+    if ("IntersectionObserver" in window) {
+      const cards = document.querySelectorAll(".game");
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry, idx) => {
+          if (entry.isIntersecting) {
+            setTimeout(() => entry.target.classList.add("is-visible"), idx * 60);
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15 });
+      cards.forEach((card) => observer.observe(card));
+    } else {
+      document.querySelectorAll(".game").forEach((c) => c.classList.add("is-visible"));
+    }
+
+    // Particle cursor trail (desktop, fine pointer, motion allowed)
+    (function () {
+      const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      const finePointer = window.matchMedia("(pointer: fine)").matches;
+      if (reduceMotion || !finePointer) return;
+
+      document.body.classList.add("has-custom-cursor");
+
+      const canvas = document.createElement("canvas");
+      canvas.id = "cursor-trail";
+      document.body.appendChild(canvas);
+      const ctx = canvas.getContext("2d");
+
+      const dot = document.createElement("div");
+      dot.className = "cursor-dot";
+      document.body.appendChild(dot);
+
+      function resize() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+      }
+      resize();
+      window.addEventListener("resize", resize);
+
+      let particles = [];
+      let lastX = -100, lastY = -100;
+
+      window.addEventListener("mousemove", (e) => {
+        dot.style.transform = `translate(${e.clientX}px, ${e.clientY}px) translate(-50%, -50%)`;
+
+        const dx = e.clientX - lastX;
+        const dy = e.clientY - lastY;
+        const dist = Math.hypot(dx, dy);
+        const count = Math.min(3, Math.max(1, Math.round(dist / 10)));
+
+        for (let i = 0; i < count; i++) {
+          particles.push({
+            x: e.clientX + (Math.random() - 0.5) * 4,
+            y: e.clientY + (Math.random() - 0.5) * 4,
+            size: Math.random() * 2.5 + 1,
+            alpha: 0.85,
+            vx: (Math.random() - 0.5) * 0.6,
+            vy: (Math.random() - 0.5) * 0.6 - 0.25,
+          });
+        }
+        if (particles.length > 90) particles.splice(0, particles.length - 90);
+        lastX = e.clientX;
+        lastY = e.clientY;
+      });
+
+      document.addEventListener("mouseover", (e) => {
+        if (e.target.closest("a, button, .game")) dot.classList.add("is-active");
+      });
+      document.addEventListener("mouseout", (e) => {
+        if (e.target.closest("a, button, .game")) dot.classList.remove("is-active");
+      });
+      window.addEventListener("mouseleave", () => {
+        dot.style.opacity = "0";
+      });
+      window.addEventListener("mouseenter", () => {
+        dot.style.opacity = "1";
+      });
+
+      function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        particles.forEach((p) => {
+          p.x += p.vx;
+          p.y += p.vy;
+          p.alpha -= 0.025;
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, Math.max(p.size, 0), 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(255, 167, 45, ${Math.max(p.alpha, 0)})`;
+          ctx.fill();
+        });
+        particles = particles.filter((p) => p.alpha > 0);
+        requestAnimationFrame(animate);
+      }
+      animate();
+    })();
   </script>
 
 </body>
